@@ -1,22 +1,10 @@
 import requests
 import json
 
-def request_post(model="dataelement",name="Test1",app="aristotle_mdr",other_field_data={}):
+def request_post(payload={},other_field_data={}):
     headers = {'Authorization':'Token  910923131171f6c4ae9bd84cbb5d5d44edb14436', 'Content-Type': 'application/json'}
-    # response = requests.get('http://localhost:8080/api/v3/metadata/?format=json',headers=headers)
-    payload = {
-        "concept_type": {
-            "app": app,
-            "model": model
-        },
-        "fields": {
-            "name": name,
-            "definition": "Placeholder"
-        }
-    }
     for key, value in other_field_data.items():
         payload["fields"][key] = value
-    # print(other_field_data)
     print(json.dumps(payload))
     response = requests.post('http://localhost:8080/api/v3/metadata/',data=json.dumps(payload), headers=headers)
     print(response.json())
@@ -34,6 +22,20 @@ def request_get(model="valuedomain",name="Test1",app="aristotle_mdr"):
         return response.json()['results'][0]['uuid']
     else:
         False
+
+def save_req_file(model="dataelement",name="Test1",app="aristotle_mdr"):
+    payload = {
+        "concept_type": {
+            "app": app,
+            "model": model
+        },
+        "fields": {
+            "name": name,
+            "definition": "Placeholder"
+        }
+    }
+    with open('data.json', 'a+') as outfile:
+        json.dump(payload, outfile, sort_keys = True, indent = 4, ensure_ascii = False)
 
 if __name__ == '__main__':
     request_post()
