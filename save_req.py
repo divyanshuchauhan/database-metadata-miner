@@ -2,7 +2,7 @@ import json
 
 class save_req:
     all_requests = []
-    def create_req(self,model="dataelement",name="Test1",app="aristotle_mdr"):
+    def create_req(self,model="dataelement",name="Test1",app="aristotle_mdr",other_field_data={}):
         payload = {
             "concept_type": {
                 "app": app,
@@ -13,8 +13,11 @@ class save_req:
                 "definition": "Placeholder"
             }
         }
-        self.all_requests.append(payload)
+        for key, value in other_field_data.items():
+            payload["fields"][key] = value
+        return payload
+        # self.all_requests.append(payload)
 
-    def save_req_file(self):
+    def save_req_file(self,data):
         with open('data.json', 'w') as outfile:
-            outfile.write(json.dumps(self.all_requests, sort_keys = True, indent = 4, ensure_ascii = False))
+            outfile.write(json.dumps(data, sort_keys = True, indent = 4, ensure_ascii = False))
