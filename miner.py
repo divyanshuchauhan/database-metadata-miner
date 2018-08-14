@@ -8,8 +8,6 @@ from save_req import save_req
 
 @click.command()
 @click.option('--url', default='sqlite:///Test2.db', help='Full Database URl')
-# @click.option('--name', prompt='Your name',
-            #   help='The person to greet.')
 
 def demo(url):
     engine = create_engine(url)

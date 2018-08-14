@@ -23,19 +23,5 @@ def request_get(model="valuedomain",name="Test1",app="aristotle_mdr"):
     else:
         False
 
-def save_req_file(model="dataelement",name="Test1",app="aristotle_mdr"):
-    payload = {
-        "concept_type": {
-            "app": app,
-            "model": model
-        },
-        "fields": {
-            "name": name,
-            "definition": "Placeholder"
-        }
-    }
-    with open('data.json', 'a+') as outfile:
-        json.dump(payload, outfile, sort_keys = True, indent = 4, ensure_ascii = False)
-
 if __name__ == '__main__':
     request_post()
