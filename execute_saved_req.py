@@ -1,6 +1,8 @@
 import json
 from req import *
+import click
 
+@click.command()
 def execute_migration():
     # print(self.all_requests)
     req_data = []
