@@ -3,8 +3,8 @@ import click
 import yaml
 import json
 import pprint
-import req
-from save_req import save_req
+import demo_meta_miner.req as req
+from demo_meta_miner.save_req import save_req
 
 @click.command()
 @click.option('--url', default='sqlite:///Test2.db', help='Full Database URl')

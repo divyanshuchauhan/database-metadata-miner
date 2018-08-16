@@ -1,5 +1,5 @@
 import json
-from req import *
+from demo_meta_miner.req import *
 import click
 
 @click.command()
