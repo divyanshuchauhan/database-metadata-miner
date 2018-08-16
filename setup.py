@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="demo_meta_miner",
-    version="0.0.4",
+    version="0.0.9",
     author="Divyanshu",
     author_email="divyanshuchauhan0208@gmail.com",
     description="A small example package",
@@ -24,4 +24,8 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
+    install_requires=[
+        "click",
+        "SQLAlchemy"
+    ]
 )
