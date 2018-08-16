@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="demo_meta_miner",
-    version="0.0.1",
+    version="0.0.4",
     author="Divyanshu",
     author_email="divyanshuchauhan0208@gmail.com",
     description="A small example package",
@@ -13,13 +13,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/divyanshuchauhan/database-metadata-miner",
     packages=setuptools.find_packages(),
-    install_requires=[
-        'Click',
-    ],
-    entry_points='''
-        [console_scripts]
-        miner=miner:cli
-    ''',
+    entry_points={
+        'console_scripts': [
+            'miner = demo_meta_miner.miner:demo',
+            'execute_saved_req = demo_meta_miner.execute_saved_req:execute_migration',
+        ],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
