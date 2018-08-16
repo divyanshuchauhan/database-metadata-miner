@@ -13,10 +13,12 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/divyanshuchauhan/database-metadata-miner",
     packages=setuptools.find_packages(),
+    install_requires=[
+        'Click',
+    ],
     entry_points='''
         [console_scripts]
-        miner=miner:cli,
-        execute_saved_req=execute_saved_req:execute_migration
+        miner=miner:cli
     ''',
     classifiers=[
         "Programming Language :: Python :: 3",
