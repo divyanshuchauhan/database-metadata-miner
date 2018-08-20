@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine
 import click
-import yaml
+# import yaml
 import json
-import pprint
+# import pprint
 import demo_meta_miner.req as req
 from demo_meta_miner.save_req import save_req
 
