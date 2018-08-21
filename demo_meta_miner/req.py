@@ -1,8 +1,8 @@
 import requests
 import json
 
-def request_post(payload={},other_field_data={}):
-    headers = {'Authorization':'Token  910923131171f6c4ae9bd84cbb5d5d44edb14436', 'Content-Type': 'application/json'}
+def request_post(auth,payload={},other_field_data={}):
+    headers = {'Authorization':'Token  '+auth, 'Content-Type': 'application/json'}
     for key, value in other_field_data.items():
         payload["fields"][key] = value
     # print(json.dumps(payload))
@@ -11,8 +11,8 @@ def request_post(payload={},other_field_data={}):
     print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
-def request_get(model="valuedomain",name="Test1",app="aristotle_mdr"):
-    headers = {'Authorization':'Token  910923131171f6c4ae9bd84cbb5d5d44edb14436'}
+def request_get(auth,model="valuedomain",name="Test1",app="aristotle_mdr"):
+    headers = {'Authorization':'Token  '+auth}
     payload = {
         'name__icontains' : name,
         'type' : app+':'+model }

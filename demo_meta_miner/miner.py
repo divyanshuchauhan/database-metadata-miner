@@ -8,8 +8,10 @@ from demo_meta_miner.save_req import save_req
 
 @click.command()
 @click.option('--url', default='sqlite:///Test2.db', help='Full Database URl')
+@click.option('--auth', default='910923131171f6c4ae9bd84cbb5d5d44edb14436', help='Authentication token')
 
-def demo(url):
+def demo(url,auth):
+    """This script creates a data.json file, that contains all the database schema to be uploaded in Aristotle"""
     engine = create_engine(url)
     # from sqlalchemy.ext.automap import automap_base
     # from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey
@@ -24,7 +26,7 @@ def demo(url):
     table_data = {}
     distributions = []
     dataset = save_req_object.create_req(model="dataset",name= "testDatabase",app="aristotle_dse")
-    dataset = req.request_post(payload=dataset)
+    dataset = req.request_post(auth=auth,payload=dataset)
     # import pdb; pdb.set_trace()
     for table in metadata.tables.keys():
         extra_information_distribution = {"data_elements": [], "dataset": dataset}
