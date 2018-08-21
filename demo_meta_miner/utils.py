@@ -23,5 +23,21 @@ def request_get(auth,model="valuedomain",name="Test1",app="aristotle_mdr"):
     else:
         False
 
-if __name__ == '__main__':
-    request_post()
+def create_req(model="dataelement",name="Test1",app="aristotle_mdr",other_field_data={}):
+    payload = {
+        "concept_type": {
+            "app": app,
+            "model": model
+        },
+        "fields": {
+            "name": name,
+            "definition": "Placeholder"
+        }
+    }
+    for key, value in other_field_data.items():
+        payload["fields"][key] = value
+    return payload
+
+def save_req_file(data):
+    with open('data.json', 'w') as outfile:
+        outfile.write(json.dumps(data, sort_keys = True, indent = 4, ensure_ascii = False))

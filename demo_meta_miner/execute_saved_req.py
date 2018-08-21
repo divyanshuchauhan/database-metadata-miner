@@ -1,5 +1,5 @@
 import json
-from demo_meta_miner.req import *
+import utils as utils
 import click
 
 @click.command()
@@ -13,14 +13,12 @@ def execute_migration(auth):
 
     for distribution in req_data:
         for i,data_element in enumerate(distribution['fields']['data_elements']):
-            valueDomain = request_get(auth=auth,model="valuedomain",name= data_element['data_element']['fields']['valueDomain']['fields']['name'],app="aristotle_mdr")
+            valueDomain = utils.request_get(auth=auth,model="valuedomain",name= data_element['data_element']['fields']['valueDomain']['fields']['name'],app="aristotle_mdr")
             if not valueDomain:
-                valueDomain = request_post(auth=auth,payload=data_element['data_element']['fields']['valueDomain'])
+                valueDomain = utils.request_post(auth=auth,payload=data_element['data_element']['fields']['valueDomain'])
             data_element['data_element']['fields']['valueDomain'] = valueDomain
-            distribution['fields']['data_elements'][i]['data_element'] = request_post(payload=data_element['data_element'])
-        request_post(auth=auth,payload=distribution)
-        # print(dist)
-
+            distribution['fields']['data_elements'][i]['data_element'] = utils.request_post(auth=auth,payload=data_element['data_element'])
+        utils.request_post(auth=auth,payload=distribution)
 
 if __name__ == '__main__':
     execute_migration()
