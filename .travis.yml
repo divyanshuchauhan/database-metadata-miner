@@ -3,4 +3,4 @@ python:
   - '3.5'
   - '3.6'
 script:
-  - python demo_meta_miner/demotest.py
+  - python tests/tests.py
