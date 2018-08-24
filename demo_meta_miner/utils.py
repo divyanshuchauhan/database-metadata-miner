@@ -40,7 +40,7 @@ def request_get(auth, model="valuedomain", name="Test1", app="aristotle_mdr"):
     if response.json()['count'] > 0:
         return response.json()['results'][0]['uuid']
     else:
-        False
+        return False
 
 
 def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}):
