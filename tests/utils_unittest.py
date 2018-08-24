@@ -1,8 +1,8 @@
 import unittest
 import os
-import sys 
-sys.path.append('..')
-import utils
+# import sys 
+# sys.path.append('.')
+import demo_meta_miner.utils as utils
 import json
 
 
