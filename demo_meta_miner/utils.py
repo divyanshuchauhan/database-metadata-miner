@@ -18,8 +18,8 @@ def request_post(auth, payload={}, other_field_data={}):
         data=json.dumps(payload),
         headers=headers
         )
-    print(response.json())
-    print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
+    # print(response.json())
+    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
