@@ -21,7 +21,7 @@ import demo_meta_miner.utils as utils
     default='data.json',
     help='Spicify the json file name'
     )
-def demo(url, database, auth, file):
+def miner(url, database, auth, file):
     """This script creates a data.json file,
     that contains all the database schema to be uploaded in Aristotle"""
     engine = create_engine(url)
@@ -86,4 +86,4 @@ def demo(url, database, auth, file):
 
 
 if __name__ == '__main__':
-    demo()
+    miner()
