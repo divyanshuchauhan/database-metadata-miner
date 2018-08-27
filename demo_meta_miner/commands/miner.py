@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, MetaData
 import click
-import utils as utils
+import demo_meta_miner.utils as utils
 # from demo_meta_miner.save_req import save_req
 
 

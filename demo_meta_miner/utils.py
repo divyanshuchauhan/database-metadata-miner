@@ -18,8 +18,8 @@ def request_post(auth, payload={}, other_field_data={}):
         data=json.dumps(payload),
         headers=headers
         )
-    # print(response.json())
-    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
+    print(response.json())
+    print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
@@ -68,3 +68,9 @@ def save_req_file(data, file_name):
     """
     with open(file_name, 'w') as outfile:
         outfile.write(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
+
+def get_miner_class(command):
+    from importlib import import_module
+    module = import_module("demo_meta_miner.commands.%s" % command.lower())
+    klass = getattr(module, command.lower())
+    return klass
