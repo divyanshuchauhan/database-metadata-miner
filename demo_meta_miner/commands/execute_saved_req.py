@@ -22,22 +22,16 @@ from demo_meta_miner.AristotleDbTools import AristotleDbTools
     )
 def execute_saved_req(auth, file, dbuuid):
     """This script consumes the json file to upload the metadata to Aristotle"""
-    req_data = utils.read_file(file)
+    json_data = utils.read_file(file)
     existing_dataset = {}
     if dbuuid:
-        datasetResponse = utils.request_get(
-            auth=auth,
-            payload = {
-            'type': 'aristotle_dse:distribution',
-            'dq':'dataset__uuid:'+dbuuid
-            })
-        if datasetResponse.status_code != 200:
-            print("uuid not valid")
-            return "uuid not valid"
-        else:
-            existing_dataset = create_dataset_structure(datasetResponse,auth)
+        try:
+            existing_dataset = create_dataset_structure(dbuuid,auth)
+        except ValueError as err:
+            print(err)
+            return
     # import pdb; pdb.set_trace()
-    for distribution in req_data:
+    for distribution in json_data:
         distribution_name = distribution['fields']['name']
         if distribution_name in existing_dataset:
             # This updates the distribution
@@ -86,7 +80,16 @@ def get_value_domain(value_domain_payload,auth):
             )
     return value_domain_id
 
-def create_dataset_structure(datasetResponse,auth):
+def create_dataset_structure(dbuuid,auth):
+    """Returns the metadata schema for the given dbuuid"""
+    datasetResponse = utils.request_get(
+        auth=auth,
+        payload = {
+        'type': 'aristotle_dse:distribution',
+        'dq':'dataset__uuid:'+dbuuid
+        })
+    if datasetResponse.status_code != 200:
+        raise ValueError('Invalid uuid.')
     import ast
     dataset = {}
     for dist in datasetResponse.json()["results"]:
@@ -98,7 +101,6 @@ def create_dataset_structure(datasetResponse,auth):
         for value in dist_data.json()['slots']:
             if value['name'] == 'distribution':
                 dist_slots_name = ast.literal_eval(value['value'])[0]
-
         dataset[dist_slots_name] = {'uuid': dist['uuid'] ,'tables': {}}
         for data_elements in dist_data.json()['fields']['data_elements']:
             dataset[dist_slots_name]['tables'][data_elements['logical_path']] = data_elements["data_element"]
