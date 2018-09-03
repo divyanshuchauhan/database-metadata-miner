@@ -1,6 +1,7 @@
 import json
-import utils as utils
+import demo_meta_miner.utils as utils
 import click
+from demo_meta_miner.AristotleDbTools import AristotleDbTools
 
 
 @click.command()
@@ -14,7 +15,7 @@ import click
     default='data.json',
     help='Spicify the json file name'
     )
-def execute_migration(auth, file):
+def execute_saved_req(auth, file):
     """This script consumes the json file to upload the metadata to Aristotle"""
     req_data = []
     with open(file, 'r') as fd:
@@ -45,4 +46,4 @@ def execute_migration(auth, file):
 
 
 if __name__ == '__main__':
-    execute_migration()
+    execute_saved_req()

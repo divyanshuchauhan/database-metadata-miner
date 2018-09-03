@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="demo_meta_miner",
-    version="0.0.16",
+    version="0.0.18",
     author="Divyanshu",
     author_email="divyanshuchauhan0208@gmail.com",
     description="A small example package",
@@ -16,8 +16,7 @@ setuptools.setup(
     python_requires='>=3',
     entry_points={
         'console_scripts': [
-            'miner = demo_meta_miner.miner:demo',
-            'execute_saved_req = demo_meta_miner.execute_saved_req:execute_migration',
+            'AristotleDbTools = demo_meta_miner.AristotleDbTools:cli',
         ],
     },
     classifiers=[
