@@ -26,11 +26,8 @@ def miner(url, database, auth, file):
     that contains all the database schema to be uploaded in Aristotle"""
     engine = create_engine(url)
     metadata = MetaData()
-
     conn = engine.connect()
-
     metadata.reflect(engine)
-    # print(metadata.tables)
 
     table_data = {}
     distributions = []
@@ -42,32 +39,36 @@ def miner(url, database, auth, file):
     dataset = utils.request_post(auth=auth, payload=dataset)
     # import pdb; pdb.set_trace()
     for table_object in metadata.sorted_tables:
+        # import pdb; pdb.set_trace()
         table = table_object.name
         extra_information_distribution = {
             "data_elements": [],
             "dataset": dataset
             }
-        # slots_information_distribution = []
         table_data[table] = []
         for columns in metadata.tables[table].c:
-            # import pdb; pdb.set_trace()
             value_domain = create_value_domain_request(columns)
             data_element = create_data_element_request(columns,value_domain)
             extra_information_distribution['data_elements'].append({
                 'data_element': data_element,
                 "logical_path": table+"."+str(columns.name)
                 })
-        distribution = create_distribution_request(table,extra_information_distribution)
+        distribution = create_distribution_request(table_object,extra_information_distribution)
         distributions.append(distribution)
     utils.save_req_file(distributions, file)
     conn.close()
 
-def create_distribution_request(table,extra_information_distribution):
+def create_distribution_request(table_object,extra_information_distribution):
     slots_information_distribution = []
+    table = table_object.name
+    primary_keys = []
+    # import pdb; pdb.set_trace()
+    for pk in table_object.primary_key.columns_autoinc_first:
+        primary_keys.append(pk.name)
     slots_information_distribution.append({
             'name': "distribution",
             "type": "Aristotle DB Tools Field",
-            "value": [str(table), {}]
+            "value": [str(table), {'primary_keys': primary_keys}]
             })
     distribution = utils.create_req(
         model="distribution",
@@ -88,7 +89,8 @@ def create_data_element_request(columns,value_domain):
     return data_element
 
 def create_value_domain_request(columns):
-    column_type = str(columns.type)
+    # import pdb; pdb.set_trace()
+    column_type = repr(columns.type)
     extra_information_value_domain = {}
     if 'enum' in column_type.lower():
         enum_types = column_type.replace("'","").split('(')[1].strip(')').split(',')
@@ -99,7 +101,6 @@ def create_value_domain_request(columns):
                 "meaning": "placeholder",
                 "order":index
                 })
-        
     value_domain = utils.create_req(
         model="valuedomain",
         name=column_type,
