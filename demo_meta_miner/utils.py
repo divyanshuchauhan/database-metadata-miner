@@ -73,6 +73,12 @@ def save_req_file(data, file_name):
     with open(file_name, 'w') as outfile:
         outfile.write(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
 
+def read_file(file_name):
+    data = []
+    with open(file_name, 'r') as fd:
+        data = json.load(fd)
+    return data
+
 def get_miner_class(command):
     from importlib import import_module
     module = import_module("demo_meta_miner.commands.%s" % command.lower())
