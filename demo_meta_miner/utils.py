@@ -18,8 +18,8 @@ def request_post(auth, payload={}, other_field_data={}):
         data=json.dumps(payload),
         headers=headers
         )
-    print(response.json())
-    print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
+    # print(response.json())
+    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
@@ -28,22 +28,12 @@ def request_get(auth, payload={}, uuid = ''):
     Makes a get request to aristotle and fetched the requested data.
     """
     headers = {'Authorization':'Token  '+auth}
-    # payload = {
-    #     'name__icontains': name,
-    #     'type': '{}:{}'.format(app, model)
-    #     }
-    # print(payload)
     response = requests.get(
         'http://localhost:8080/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )
-    # print(response)
     return response
-    # if response.json()['count'] > 0:
-    #     return response.json()['results'][0]['uuid']
-    # else:
-    #     return False
 
 
 def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}, slots_data=[]):

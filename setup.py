@@ -25,11 +25,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "click",
-        "sqlalchemy",
-        "requests",
-        "psycopg2",
-        "mysqlclient"
+        "click~=6.0",
+        "sqlalchemy~=1.2.0",
+        "requests~=2.19.0",
+        "psycopg2~=2.7.0",
+        "mysqlclient~=1.3.0"
         
     ]
 )
