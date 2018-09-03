@@ -13,7 +13,7 @@ import demo_meta_miner.utils as utils
     )
 @click.option(
     '--auth',
-    default='910923131171f6c4ae9bd84cbb5d5d44edb14436',
+    default='6da4e3f4d662972428d369a11a5bdf153e202d51',
     help='Authentication token'
     )
 @click.option(
@@ -47,8 +47,10 @@ def miner(url, database, auth, file):
             "data_elements": [],
             "dataset": dataset
             }
+        slots_information_distribution = []
         table_data[table] = []
         for columns in metadata.tables[table].c:
+            # import pdb; pdb.set_trace()
             column_type = str(columns.type)
             extra_information_value_domain = {}
             if 'enum' in column_type.lower():
@@ -75,10 +77,21 @@ def miner(url, database, auth, file):
                 'data_element': data_element,
                 "logical_path": table+"."+str(columns.name)
                 })
+            # slots_information_distribution.append({
+            #     'name': "data_element",
+            #     "type": "Aristotle DB Tools Field",
+            #     "value": str(columns.name)
+            #     })
+        slots_information_distribution.append({
+                'name': "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": [str(table), {}]
+                })
         distribution = utils.create_req(
             model="distribution",
             name=table, app="aristotle_dse",
-            other_field_data=extra_information_distribution
+            other_field_data=extra_information_distribution,
+            slots_data = slots_information_distribution
             )
         distributions.append(distribution)
     utils.save_req_file(distributions, file)

@@ -14,7 +14,7 @@ def request_post(auth, payload={}, other_field_data={}):
     for key, value in other_field_data.items():
         payload["fields"][key] = value
     response = requests.post(
-        'http://localhost:8080/api/v3/metadata/',
+        'http://localhost:8080/api/v3_1/metadata/',
         data=json.dumps(payload),
         headers=headers
         )
@@ -23,27 +23,30 @@ def request_post(auth, payload={}, other_field_data={}):
     return response.json()['created'][0]['uuid']
 
 
-def request_get(auth, model="valuedomain", name="Test1", app="aristotle_mdr"):
+def request_get(auth, payload={}, uuid = ''):
     """
     Makes a get request to aristotle and fetched the requested data.
     """
     headers = {'Authorization':'Token  '+auth}
-    payload = {
-        'name__icontains': name,
-        'type': '{}:{}'.format(app, model)
-        }
+    # payload = {
+    #     'name__icontains': name,
+    #     'type': '{}:{}'.format(app, model)
+    #     }
+    # print(payload)
     response = requests.get(
-        'http://localhost:8080/api/v3/metadata/',
+        'http://localhost:8080/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )
-    if response.json()['count'] > 0:
-        return response.json()['results'][0]['uuid']
-    else:
-        return False
+    # print(response)
+    return response
+    # if response.json()['count'] > 0:
+    #     return response.json()['results'][0]['uuid']
+    # else:
+    #     return False
 
 
-def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}):
+def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}, slots_data=[]):
     """
     Returns a payload for API according to the provided arguments
     """
@@ -55,7 +58,8 @@ def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_fie
         "fields": {
             "name": name,
             "definition": "Placeholder"
-        }
+        },
+        "slots": slots_data
     }
     for key, value in other_field_data.items():
         payload["fields"][key] = value
