@@ -1,2 +1,5 @@
 SQLAlchemy
 click
+requests
+psycopg2
+mysqlclient
