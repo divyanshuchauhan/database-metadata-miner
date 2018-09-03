@@ -64,7 +64,7 @@ def create_distribution_request(table_object,extra_information_distribution):
     primary_keys = []
     # import pdb; pdb.set_trace()
     for pk in table_object.primary_key.columns_autoinc_first:
-        primary_keys.append(pk.name)
+        primary_keys.append(table + '.' +pk.name)
     slots_information_distribution.append({
             'name': "distribution",
             "type": "Aristotle DB Tools Field",

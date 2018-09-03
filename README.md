@@ -12,10 +12,10 @@ Development: `python3 -m pip install --index-url https://test.pypi.org/project/ 
 
 To run the miner use the command:
 
-`miner --url <db url> --auth <auth token> --file <filename you prefer i.e. data.json>`
+`AristotleDbTools miner --url <db url> --auth <auth token> --file <filename you prefer i.e. data.json>`
  
 A data.json would be created in the same folder. 
 
 Then run the following command to upload the metadata to your local aristotle:
 
-`execute_saved_req --auth <auth token> --file <filename of json to read i.e. data.json>`
+`AristotleDbTools execute_saved_req --auth <auth token> --file <filename of json to read i.e. data.json> --dbuuid <database uuid, for incremental update>`
