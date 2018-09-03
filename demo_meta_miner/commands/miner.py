@@ -47,56 +47,66 @@ def miner(url, database, auth, file):
             "data_elements": [],
             "dataset": dataset
             }
-        slots_information_distribution = []
+        # slots_information_distribution = []
         table_data[table] = []
         for columns in metadata.tables[table].c:
             # import pdb; pdb.set_trace()
-            column_type = str(columns.type)
-            extra_information_value_domain = {}
-            if 'enum' in column_type.lower():
-                enum_types = column_type.replace("'","").split('(')[1].strip(')').split(',')
-                extra_information_value_domain['permissible_values'] = []
-                for index,enum_type in enumerate(enum_types):
-                    extra_information_value_domain['permissible_values'].append({"value": enum_type,
-                "meaning": "placeholder", "order":index})
-                
-            value_domain = utils.create_req(
-                model="valuedomain",
-                name=column_type,
-                app="aristotle_mdr",
-                other_field_data=extra_information_value_domain
-                )
-            extra_information_dataelement = {"valueDomain": value_domain}
-            data_element = utils.create_req(
-                model="dataelement",
-                name=str(columns.name),
-                app="aristotle_mdr",
-                other_field_data=extra_information_dataelement
-                )
+            value_domain = create_value_domain_request(columns)
+            data_element = create_data_element_request(columns,value_domain)
             extra_information_distribution['data_elements'].append({
                 'data_element': data_element,
                 "logical_path": table+"."+str(columns.name)
                 })
-            # slots_information_distribution.append({
-            #     'name': "data_element",
-            #     "type": "Aristotle DB Tools Field",
-            #     "value": str(columns.name)
-            #     })
-        slots_information_distribution.append({
-                'name': "distribution",
-                "type": "Aristotle DB Tools Field",
-                "value": [str(table), {}]
-                })
-        distribution = utils.create_req(
-            model="distribution",
-            name=table, app="aristotle_dse",
-            other_field_data=extra_information_distribution,
-            slots_data = slots_information_distribution
-            )
+        distribution = create_distribution_request(table,extra_information_distribution)
         distributions.append(distribution)
     utils.save_req_file(distributions, file)
     conn.close()
 
+def create_distribution_request(table,extra_information_distribution):
+    slots_information_distribution = []
+    slots_information_distribution.append({
+            'name': "distribution",
+            "type": "Aristotle DB Tools Field",
+            "value": [str(table), {}]
+            })
+    distribution = utils.create_req(
+        model="distribution",
+        name=table, app="aristotle_dse",
+        other_field_data=extra_information_distribution,
+        slots_data = slots_information_distribution
+        )
+    return distribution
+
+def create_data_element_request(columns,value_domain):
+    extra_information_dataelement = {"valueDomain": value_domain}
+    data_element = utils.create_req(
+        model="dataelement",
+        name=str(columns.name),
+        app="aristotle_mdr",
+        other_field_data=extra_information_dataelement
+        )
+    return data_element
+
+def create_value_domain_request(columns):
+    column_type = str(columns.type)
+    extra_information_value_domain = {}
+    if 'enum' in column_type.lower():
+        enum_types = column_type.replace("'","").split('(')[1].strip(')').split(',')
+        extra_information_value_domain['permissible_values'] = []
+        for index,enum_type in enumerate(enum_types):
+            extra_information_value_domain['permissible_values'].append({
+                "value": enum_type,
+                "meaning": "placeholder",
+                "order":index
+                })
+        
+    value_domain = utils.create_req(
+        model="valuedomain",
+        name=column_type,
+        app="aristotle_mdr",
+        other_field_data=extra_information_value_domain
+        )
+    return value_domain
 
 if __name__ == '__main__':
     miner()
