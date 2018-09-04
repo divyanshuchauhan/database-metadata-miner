@@ -29,7 +29,7 @@ def request_get(auth, payload={}, uuid = ''):
     """
     headers = {'Authorization':'Token  '+auth}
     response = requests.get(
-        'http://127.0.0.1:8080/api/v3/metadata/'+uuid,
+        'http://0.0.0.0:8080/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )
