@@ -14,36 +14,29 @@ def request_post(auth, payload={}, other_field_data={}):
     for key, value in other_field_data.items():
         payload["fields"][key] = value
     response = requests.post(
-        'http://localhost:8080/api/v3/metadata/',
+        'http://localhost:8080/api/v3_1/metadata/',
         data=json.dumps(payload),
         headers=headers
         )
-    print(response.json())
-    print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
+    # print(response.json())
+    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
-def request_get(auth, model="valuedomain", name="Test1", app="aristotle_mdr"):
+def request_get(auth, payload={}, uuid = ''):
     """
     Makes a get request to aristotle and fetched the requested data.
     """
     headers = {'Authorization':'Token  '+auth}
-    payload = {
-        'name__icontains': name,
-        'type': '{}:{}'.format(app, model)
-        }
     response = requests.get(
-        'http://localhost:8080/api/v3/metadata/',
+        'http://localhost:8080/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )
-    if response.json()['count'] > 0:
-        return response.json()['results'][0]['uuid']
-    else:
-        return False
+    return response
 
 
-def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}):
+def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_field_data={}, slots_data=[]):
     """
     Returns a payload for API according to the provided arguments
     """
@@ -55,7 +48,8 @@ def create_req(model="dataelement", name="Test1", app="aristotle_mdr", other_fie
         "fields": {
             "name": name,
             "definition": "Placeholder"
-        }
+        },
+        "slots": slots_data
     }
     for key, value in other_field_data.items():
         payload["fields"][key] = value
@@ -68,6 +62,12 @@ def save_req_file(data, file_name):
     """
     with open(file_name, 'w') as outfile:
         outfile.write(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
+
+def read_file(file_name):
+    data = []
+    with open(file_name, 'r') as fd:
+        data = json.load(fd)
+    return data
 
 def get_miner_class(command):
     from importlib import import_module
