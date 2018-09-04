@@ -55,7 +55,7 @@ class TestUtilsPy(unittest.TestCase):
     def test_request_get_no_result_case(self):
         responses.add(
             responses.GET,
-            'http://localhost:8080/api/v3/metadata/123',
+            'http://127.0.0.1:8080/api/v3/metadata/123',
             json={'count': 0,'results':[]},
             status=200
             )
@@ -71,7 +71,7 @@ class TestUtilsPy(unittest.TestCase):
     def test_request_get_result_case(self):
         responses.add(
             responses.GET,
-            'http://localhost:8080/api/v3/metadata/123',
+            'http://127.0.0.1:8080/api/v3/metadata/123',
             json={
                 'count': 2, 'results':[{'uuid':'result1'},{'uuid':'result2'}]
                 },
@@ -90,7 +90,7 @@ class TestUtilsPy(unittest.TestCase):
     def test_request_post(self):
         responses.add(
             responses.POST,
-            'http://localhost:8080/api/v3_1/metadata/',
+            'http://127.0.0.1:8080/api/v3_1/metadata/',
             json={'created':[{'uuid':'uuid1'}]},
             status=200,
             content_type='application/json'

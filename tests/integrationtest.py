@@ -17,4 +17,4 @@ class TestUtilsPy(unittest.TestCase):
             payload={},
             uuid = '123'
             )
-        self.assertEqual({'count': 0,'results':[]},result.json())
+        self.assertEqual({'detail': 'Invalid token.'},result.json())
