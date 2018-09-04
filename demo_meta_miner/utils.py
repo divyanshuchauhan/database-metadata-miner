@@ -14,12 +14,12 @@ def request_post(auth, payload={}, other_field_data={}):
     for key, value in other_field_data.items():
         payload["fields"][key] = value
     response = requests.post(
-        'http://localhost:8080/api/v3_1/metadata/',
+        'http://127.0.0.1:8080/api/v3_1/metadata/',
         data=json.dumps(payload),
         headers=headers
         )
-    # print(response.json())
-    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
+    print(response.json())
+    print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
@@ -29,7 +29,7 @@ def request_get(auth, payload={}, uuid = ''):
     """
     headers = {'Authorization':'Token  '+auth}
     response = requests.get(
-        'http://localhost:8080/api/v3/metadata/'+uuid,
+        'http://127.0.0.1:8080/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )
