@@ -1,6 +1,12 @@
 language: python
 python:
-  - '3.5'
   - '3.6'
+before_script:
+  - pip install aristotle-metadata-registry
+  - pip install django-autocomplete-light==3.2.*
+  - ./test_project/manage.py migrate
+  - ./test_project/manage.py collectstatic
+  - ./test_project/manage.py createcachetable
+  - nohup ./test_project/manage.py runserver &
 script:
   - python -m unittest tests.utils_unittest
