@@ -31,7 +31,7 @@ from aristotle_glossary.settings import CKEDITOR_CONFIGS
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
 # You need to
-SECRET_KEY = '6100350100a0ae9c50e531e49844cea5398322d6de1315e9f77556b8'
+SECRET_KEY = 'b4b9bddc72611c1d8189cbbfca241a5a138cf2b628965d7146a5998f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
