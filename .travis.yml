@@ -4,6 +4,7 @@ python:
 before_script:
   - pip install git+https://github.com/divyanshuchauhan/aristotle-metadata-registry.git
   - pip install -r ./test_project/requirements.txt
+  - pip install django-filter==1.1.0
   - ./test_project/manage.py migrate
   - ./test_project/manage.py collectstatic
   - ./test_project/manage.py createcachetable
@@ -14,4 +15,3 @@ before_script:
 script:
   - python -m unittest tests.utils_unittest
   - python -m unittest tests.integrationtest
-  
