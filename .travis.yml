@@ -2,7 +2,7 @@ language: python
 python:
   - '3.6'
 before_script:
-  - pip install git+https://github.com/divyanshuchauhan/aristotle-metadata-registry.git
+  - pip install git+https://github.com/divyanshuchauhan/aristotle-metadata-registry.git@api_fixes
   - pip install -r ./test_project/requirements.txt
   - pip install django-filter==1.1.0
   - ./test_project/manage.py migrate
