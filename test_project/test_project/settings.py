@@ -16,6 +16,11 @@ import os
 # Import all of the necessary settings to get the Aristotle server working.
 # These are defaults and can be overridden within this file.
 from aristotle_mdr.required_settings import *
+from aristotle_mdr_api.settings import (
+    REQUIRED_APPS as API_REQUIRED_APPS,
+    SERIALIZATION_MODULES,
+    REST_FRAMEWORK
+)
 
 # Override these
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -50,12 +55,10 @@ TEMPLATE_DEBUG = True
 INSTALLED_APPS = (
      'aristotle_dse', # Additional models for describing datasets - https://github.com/aristotle-mdr/aristotle-dataset-extensions
      'aristotle_glossary', # Model for managing and inserting glossary content - https://github.com/aristotle-mdr/aristotle-glossary
-     'aristotle_mdr_api', # JSON API for programmatic access to content
-     'rest_framework', # Needed for the above
      'aristotle_mdr_graphql',
      'comet',
      'mallard_qr',
-) + INSTALLED_APPS # Installs the required apps to run aristotle.
+) + API_REQUIRED_APPS + INSTALLED_APPS # Installs the required apps to run aristotle.
 
 ROOT_URLCONF = 'test_project.urls'
 
