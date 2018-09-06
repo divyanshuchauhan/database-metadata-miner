@@ -15,3 +15,4 @@ script:
   - output=$(./test_project/manage.py create_access_token| tail -1)
   - python -m unittest tests.utils_unittest
   - test_auth=$output python -m unittest tests.integrationtest
+
