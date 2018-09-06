@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def request_post(auth, payload={}, other_field_data={}):
+def request_post(auth, payload={}, other_field_data={},url='http://127.0.0.1:8080'):
     """
     Makes a post request to aristotle using the given payload.
     The other_field_data will be appened inside the 'fields' data in payload.
@@ -14,7 +14,7 @@ def request_post(auth, payload={}, other_field_data={}):
     for key, value in other_field_data.items():
         payload["fields"][key] = value
     response = requests.post(
-        'http://127.0.0.1:8080/api/v3_1/metadata/',
+        url+'/api/v3_1/metadata/',
         data=json.dumps(payload),
         headers=headers
         )
@@ -23,13 +23,13 @@ def request_post(auth, payload={}, other_field_data={}):
     return response.json()['created'][0]['uuid']
 
 
-def request_get(auth, payload={}, uuid = ''):
+def request_get(auth, payload={}, uuid = '',url='http://127.0.0.1:8080'):
     """
     Makes a get request to aristotle and fetched the requested data.
     """
     headers = {'Authorization':'Token  '+auth}
     response = requests.get(
-        'http://0.0.0.0:8080/api/v3/metadata/'+uuid,
+        url+'/api/v3/metadata/'+uuid,
         params=(payload),
         headers=headers
         )

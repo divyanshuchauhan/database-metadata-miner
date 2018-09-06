@@ -10,10 +10,8 @@ before_script:
   - ./test_project/manage.py createcachetable
   - ./test_project/manage.py shell -c "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin@myproject.com', 'password')"
   - nohup ./test_project/manage.py runserver 0.0.0.0:8080 &
-  - ps ax | grep 8080
 
 script:
-  - ./test_project/manage.py create_access_token
+  - output=$(./test_project/manage.py create_access_token| tail -1)
   - python -m unittest tests.utils_unittest
-  - python -m unittest tests.integrationtest
-  - ps ax | grep 80
+  - test_auth=$output python -m unittest tests.integrationtest
