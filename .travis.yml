@@ -14,7 +14,7 @@ before_script:
 
 script:
   - ./test_project/manage.py create_access_token
-  - output=$(./test_project/manage.py create_access_token| tail -1)
+  - output=$(./test_project/manage.py create_access_token| tail -2)
   - echo $output
   - python -m unittest tests.utils_unittest
   - test_auth=$output python -m unittest tests.integrationtest
