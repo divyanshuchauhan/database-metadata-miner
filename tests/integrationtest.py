@@ -25,9 +25,9 @@ class TestUtilsPy(unittest.TestCase):
             )
         self.assertEqual({'detail': 'Invalid token.'},result.json())
     def test_request_get_no_result_case2(self):
-        print(auth)
+        print(self.auth)
         result = utils.request_get(
-            auth,
+            self.auth,
             payload={},
             uuid = '',
             url = 'http://0.0.0.0:8080'
