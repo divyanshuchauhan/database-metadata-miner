@@ -13,7 +13,7 @@ from subprocess import call,check_output
 
 class TestUtilsPy(unittest.TestCase):
     # auth = os.environ.get('test_auth')
-    auth = str(check_output("./test_project/manage.py create_access_token|tail -1",shell=True)).decode('UTF-8')
+    auth = check_output("./test_project/manage.py create_access_token|tail -1",shell=True).decode('UTF-8')
     # x = check_output("(ls -l|tail -1)",shell=True).decode('UTF-8')
     # import pdb; pdb.set_trace()
     dataset_id = ''
