@@ -12,7 +12,7 @@ from click.testing import CliRunner
 from subprocess import call
 
 class TestUtilsPy(unittest.TestCase):
-    auth = os.environ.get('test_auth')
+    auth = str(call(["./test_project/manage.py create_access_token|tail -1"],shell=True))
     dataset_id = ''
     def test_request_get_no_result_case(self):
 
@@ -24,8 +24,8 @@ class TestUtilsPy(unittest.TestCase):
             )
         self.assertEqual({'detail': 'Invalid token.'},result.json())
     def test_request_get_no_result_case2(self):
-        self.auth = os.environ.get('test_auth', self.auth)
-        self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
+        # self.auth = os.environ.get('test_auth', self.auth)
+        # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         print(self.auth)
         result = utils.request_get(
             self.auth,
@@ -37,7 +37,7 @@ class TestUtilsPy(unittest.TestCase):
 
     def test_miner(self):
         print(self.auth)
-        self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
+        # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
         result = runner.invoke(miner, ['--url','sqlite:///Test2.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'])
         self.dataset_id = result.output.replace('\n','')
@@ -45,6 +45,7 @@ class TestUtilsPy(unittest.TestCase):
         compare_data = utils.read_file('./tests/data.json')
         for distribution in compare_data:
             distribution['fields']['dataset'] = self.dataset_id
+        print('hiiii')
         print(self.dataset_id)
         self.assertEqual(result_data,compare_data)
         self.execute_saved_req(result_data)
