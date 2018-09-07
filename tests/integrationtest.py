@@ -12,7 +12,9 @@ from click.testing import CliRunner
 from subprocess import call
 
 class TestUtilsPy(unittest.TestCase):
-    auth = str(call(["./test_project/manage.py create_access_token|tail -1"],shell=True))
+    auth = str(call("./test_project/manage.py create_access_token|tail -1",shell=True)).rstrip('\n0')
+    # print(str(call("ls -l|tail -1",shell=True)).rstrip('\n0'))
+    # import pdb; pdb.set_trace()
     dataset_id = ''
     def test_request_get_no_result_case(self):
 
