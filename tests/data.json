@@ -1,0 +1,383 @@
+[
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "DepartmentId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Departments.DepartmentId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "DepartmentName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=50)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Departments.DepartmentName"
+                }
+            ],
+            "dataset": "e1eb529c-b247-11e8-ab02-0242ac120003",
+            "definition": "Placeholder",
+            "name": "Departments"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "Departments",
+                    {
+                        "primary_keys": [
+                            "Departments.DepartmentId"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "StudentId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Marks.StudentId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "SubjectId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Marks.SubjectId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Mark",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Marks.Mark"
+                }
+            ],
+            "dataset": "e1eb529c-b247-11e8-ab02-0242ac120003",
+            "definition": "Placeholder",
+            "name": "Marks"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "Marks",
+                    {
+                        "primary_keys": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "StudentId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Students.StudentId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "StudentName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=50)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Students.StudentName"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "DepartmentId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Students.DepartmentId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "DateOfBirth",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "DATE()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Students.DateOfBirth"
+                }
+            ],
+            "dataset": "e1eb529c-b247-11e8-ab02-0242ac120003",
+            "definition": "Placeholder",
+            "name": "Students"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "Students",
+                    {
+                        "primary_keys": [
+                            "Students.StudentId"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "SubjectId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Subjects.SubjectId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "SubjectName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=50)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "Subjects.SubjectName"
+                }
+            ],
+            "dataset": "e1eb529c-b247-11e8-ab02-0242ac120003",
+            "definition": "Placeholder",
+            "name": "Subjects"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "Subjects",
+                    {
+                        "primary_keys": [
+                            "Subjects.SubjectId"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

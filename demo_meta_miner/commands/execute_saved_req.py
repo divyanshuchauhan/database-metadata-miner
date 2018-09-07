@@ -20,7 +20,12 @@ from demo_meta_miner.AristotleDbTools import AristotleDbTools
     default='',
     help='Optional database uuid if the upload is incremental'
     )
-def execute_saved_req(auth, file, dbuuid):
+@click.option(
+    '--aristotleurl',
+    default='http://127.0.0.1:8080',
+    help='Specify the aristotle url'
+    )
+def execute_saved_req(auth, file, dbuuid, aristotleurl):
     """This script consumes the json file to upload the metadata to Aristotle"""
     json_data = utils.read_file(file)
     existing_dataset = {}
@@ -38,13 +43,14 @@ def execute_saved_req(auth, file, dbuuid):
             distribution['fields']['uuid'] = existing_dataset[distribution_name]['uuid']
         data_elements = distribution['fields']['data_elements']
         for i, data_element_payload in enumerate(data_elements):
-            data_elements[i]['data_element'] = get_data_element(existing_dataset,data_element_payload,distribution_name,auth)
+            data_elements[i]['data_element'] = get_data_element(existing_dataset,data_element_payload,distribution_name,auth,aristotleurl)
         utils.request_post(
             auth=auth,
-            payload=distribution
+            payload=distribution,
+            url=aristotleurl
             )
 
-def get_data_element(existing_dataset,data_element_payload,distribution_name,auth):
+def get_data_element(existing_dataset, data_element_payload, distribution_name, auth, aristotleurl):
     """ Get the data element id. Either from existing dataset or by creating new"""
     logical_path = data_element_payload['logical_path']
     if (distribution_name in existing_dataset and 
@@ -52,22 +58,24 @@ def get_data_element(existing_dataset,data_element_payload,distribution_name,aut
         data_element_id = existing_dataset[distribution_name]['tables'][logical_path]
     else:
         value_domain_payload = data_element_payload['data_element']['fields']['valueDomain']
-        value_domain_id = get_value_domain(value_domain_payload,auth)
+        value_domain_id = get_value_domain(value_domain_payload,auth,aristotleurl)
         data_element_payload['data_element']['fields']['valueDomain'] = value_domain_id
         data_element_id = utils.request_post(
             auth=auth,
-            payload=data_element_payload['data_element']
+            payload=data_element_payload['data_element'],
+            url=aristotleurl
             )
     return data_element_id
 
-def get_value_domain(value_domain_payload,auth):
+def get_value_domain(value_domain_payload, auth, aristotleurl):
     """ Get the value domain id. Either from existing value domain or by creating new"""
     valueDomainResponse = utils.request_get(
         auth=auth,
         payload = {
             'name__icontains': value_domain_payload['fields']['name'],
             'type': 'aristotle_mdr:valuedomain'
-        })
+        },
+        url=aristotleurl)
     if valueDomainResponse.json()['count'] > 0:
         value_domain_id = valueDomainResponse.json()['results'][0]['uuid']
     else:
@@ -76,7 +84,8 @@ def get_value_domain(value_domain_payload,auth):
     if not value_domain_id:
         value_domain_id = utils.request_post(
             auth=auth,
-            payload=value_domain_payload
+            payload=value_domain_payload,
+            url=aristotleurl
             )
     return value_domain_id
 
@@ -87,7 +96,8 @@ def create_dataset_structure(dbuuid,auth):
         payload = {
         'type': 'aristotle_dse:distribution',
         'dq':'dataset__uuid:'+dbuuid
-        })
+        },
+        url=aristotleurl)
     if datasetResponse.status_code != 200:
         raise ValueError('Invalid uuid.')
     import ast
@@ -95,7 +105,8 @@ def create_dataset_structure(dbuuid,auth):
     for dist in datasetResponse.json()["results"]:
         dist_data =  utils.request_get(
             auth=auth,
-            uuid=dist['uuid']
+            uuid=dist['uuid'],
+            url=aristotleurl
         )
         dist_slots_name = ''
         for value in dist_data.json()['slots']:
