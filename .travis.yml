@@ -14,8 +14,8 @@ before_script:
 
 script:
   - ./test_project/manage.py create_access_token
-  - output=$(./test_project/manage.py create_access_token|tail -1)
-  - echo "$output"
+  - output=`./test_project/manage.py create_access_token|tail -n 1`
+  - echo $output
   - python -m unittest tests.utils_unittest
-  - test_auth=$(django-admin create_access_token|tail -1) python -m unittest tests.integrationtest
+  - test_auth=$output python -m unittest tests.integrationtest
 
