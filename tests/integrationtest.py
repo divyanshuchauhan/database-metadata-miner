@@ -12,6 +12,7 @@ from click.testing import CliRunner
 from subprocess import call
 
 class TestUtilsPy(unittest.TestCase):
+    # auth = os.environ.get('test_auth')
     auth = str(call("./test_project/manage.py create_access_token|tail -1",shell=True)).rstrip('\n0')
     # print(str(call("ls -l|tail -1",shell=True)).rstrip('\n0'))
     # import pdb; pdb.set_trace()
@@ -27,7 +28,8 @@ class TestUtilsPy(unittest.TestCase):
         self.assertEqual({'detail': 'Invalid token.'},result.json())
     def test_request_get_no_result_case2(self):
         # self.auth = os.environ.get('test_auth', self.auth)
-        # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
+        self.auth = str(call("./test_project/manage.py create_access_token|tail -1",shell=True))
+        print('----1------')
         print(self.auth)
         result = utils.request_get(
             self.auth,
@@ -38,6 +40,7 @@ class TestUtilsPy(unittest.TestCase):
         self.assertEqual({'count': 0, 'next': None, 'previous': None, 'results': []},result.json())
 
     def test_miner(self):
+        print('---2----')
         print(self.auth)
         # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
