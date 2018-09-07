@@ -9,16 +9,15 @@ import responses
 import click
 import sys
 from click.testing import CliRunner
-from subprocess import call
+from subprocess import call,check_output
 
 class TestUtilsPy(unittest.TestCase):
     # auth = os.environ.get('test_auth')
-    auth = str(call("./test_project/manage.py create_access_token|tail -1",shell=True)).rstrip('\n0')
-    # print(str(call("ls -l|tail -1",shell=True)).rstrip('\n0'))
+    auth = str(check_output("./test_project/manage.py create_access_token|tail -1",shell=True)).decode('UTF-8')
+    # x = check_output("(ls -l|tail -1)",shell=True).decode('UTF-8')
     # import pdb; pdb.set_trace()
     dataset_id = ''
     def test_request_get_no_result_case(self):
-
         result = utils.request_get(
             "testAuth",
             payload={},
@@ -28,7 +27,7 @@ class TestUtilsPy(unittest.TestCase):
         self.assertEqual({'detail': 'Invalid token.'},result.json())
     def test_request_get_no_result_case2(self):
         # self.auth = os.environ.get('test_auth', self.auth)
-        self.auth = str(call("./test_project/manage.py create_access_token|tail -1",shell=True))
+        # self.auth = str(check_output("./test_project/manage.py create_access_token|tail -1",shell=True)).decode('UTF-8')
         print('----1------')
         print(self.auth)
         result = utils.request_get(
