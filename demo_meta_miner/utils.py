@@ -60,12 +60,15 @@ def save_req_file(data, file_name):
     """
     Saves the data in the provided fileName.
     """
+    print('----write file-----')
     print(data)
     print(file_name)
     with open(file_name, 'w') as outfile:
         outfile.write(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
 
 def read_file(file_name):
+    print('----read file-----')
+    print(file_name)
     data = []
     with open(file_name, 'r') as fd:
         data = json.load(fd)
