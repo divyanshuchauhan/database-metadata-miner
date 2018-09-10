@@ -29,51 +29,38 @@ import demo_meta_miner.utils as utils
 def miner(url, database, auth, file, aristotleurl):
     """This script creates a data.json file,
     that contains all the database schema to be uploaded in Aristotle"""
-    print('----0----')
     engine = create_engine(url)
-    print('----0.1----')
     metadata = MetaData()
-    print('----0.2----')
     conn = engine.connect()
-    print('----0.3----')
     metadata.reflect(engine)
-    print('----0.4----')
 
     table_data = {}
     distributions = []
-    print('----0.5----')
     dataset = utils.create_req(
         model="dataset",
         name=database,
         app="aristotle_dse"
         )
-    print('----0.6----')
     dataset = utils.request_post(auth=auth, payload=dataset, url=aristotleurl)
     # import pdb; pdb.set_trace()
-    print('----1----')
     for table_object in metadata.sorted_tables:
         # import pdb; pdb.set_trace()
-        print('----2----')
         table = table_object.name
         extra_information_distribution = {
             "data_elements": [],
             "dataset": dataset
             }
         table_data[table] = []
-        print('----3----')
         for columns in metadata.tables[table].c:
-            print('----4----')
             value_domain = create_value_domain_request(columns)
             data_element = create_data_element_request(columns,value_domain)
             extra_information_distribution['data_elements'].append({
                 'data_element': data_element,
                 "logical_path": table+"."+str(columns.name)
                 })
-            print('----5----')
         distribution = create_distribution_request(table_object,extra_information_distribution)
         distributions.append(distribution)
-    print('in miner')
-    print(distributions)
+    # print(distributions)
     utils.save_req_file(distributions, file)
     conn.close()
     print(dataset)

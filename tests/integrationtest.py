@@ -1,5 +1,5 @@
 import unittest
-import mock
+# import mock
 import os
 import demo_meta_miner.utils as utils
 from demo_meta_miner.commands.miner import miner
