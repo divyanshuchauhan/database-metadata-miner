@@ -29,18 +29,25 @@ import demo_meta_miner.utils as utils
 def miner(url, database, auth, file, aristotleurl):
     """This script creates a data.json file,
     that contains all the database schema to be uploaded in Aristotle"""
+    print('----0----')
     engine = create_engine(url)
+    print('----0.1----')
     metadata = MetaData()
+    print('----0.2----')
     conn = engine.connect()
+    print('----0.3----')
     metadata.reflect(engine)
+    print('----0.4----')
 
     table_data = {}
     distributions = []
+    print('----0.5----')
     dataset = utils.create_req(
         model="dataset",
         name=database,
         app="aristotle_dse"
         )
+    print('----0.6----')
     dataset = utils.request_post(auth=auth, payload=dataset, url=aristotleurl)
     # import pdb; pdb.set_trace()
     print('----1----')
