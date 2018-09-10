@@ -21,7 +21,12 @@ import demo_meta_miner.utils as utils
     default='data.json',
     help='Spicify the json file name'
     )
-def miner(url, database, auth, file):
+@click.option(
+    '--aristotleurl',
+    default='http://127.0.0.1:8080',
+    help='Spicify the aristotle url'
+    )
+def miner(url, database, auth, file, aristotleurl):
     """This script creates a data.json file,
     that contains all the database schema to be uploaded in Aristotle"""
     engine = create_engine(url)
@@ -36,7 +41,7 @@ def miner(url, database, auth, file):
         name=database,
         app="aristotle_dse"
         )
-    dataset = utils.request_post(auth=auth, payload=dataset)
+    dataset = utils.request_post(auth=auth, payload=dataset, url=aristotleurl)
     # import pdb; pdb.set_trace()
     for table_object in metadata.sorted_tables:
         # import pdb; pdb.set_trace()
@@ -55,8 +60,10 @@ def miner(url, database, auth, file):
                 })
         distribution = create_distribution_request(table_object,extra_information_distribution)
         distributions.append(distribution)
+    # print(distributions)
     utils.save_req_file(distributions, file)
     conn.close()
+    print(dataset)
 
 def create_distribution_request(table_object,extra_information_distribution):
     slots_information_distribution = []
