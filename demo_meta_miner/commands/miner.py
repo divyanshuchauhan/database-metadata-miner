@@ -60,6 +60,8 @@ def miner(url, database, auth, file, aristotleurl):
                 })
         distribution = create_distribution_request(table_object,extra_information_distribution)
         distributions.append(distribution)
+    print('in miner')
+    print(distributions)
     utils.save_req_file(distributions, file)
     conn.close()
     print(dataset)

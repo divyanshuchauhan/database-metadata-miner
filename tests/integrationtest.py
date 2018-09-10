@@ -26,10 +26,6 @@ class TestUtilsPy(unittest.TestCase):
             )
         self.assertEqual({'detail': 'Invalid token.'},result.json())
     def test_request_get_no_result_case2(self):
-        # self.auth = os.environ.get('test_auth', self.auth)
-        # self.auth = str(check_output("./test_project/manage.py create_access_token|tail -1",shell=True)).decode('UTF-8')
-        print('----1------')
-        print(self.auth)
         result = utils.request_get(
             self.auth,
             payload={},
@@ -39,22 +35,21 @@ class TestUtilsPy(unittest.TestCase):
         self.assertEqual({'count': 0, 'next': None, 'previous': None, 'results': []},result.json())
 
     def test_miner(self):
-        print('---2----')
-        print(self.auth)
         # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
         result = runner.invoke(miner, ['--url','sqlite:///Test2.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'])
         self.dataset_id = result.output.replace('\n','')
+        print('hiiii')
+        print(self.dataset_id)
         result_data = utils.read_file('./tests/data_result.json')
         compare_data = utils.read_file('./tests/data.json')
         for distribution in compare_data:
             distribution['fields']['dataset'] = self.dataset_id
         print('hiiii')
-        print(self.dataset_id)
         self.assertEqual(result_data,compare_data)
-        self.execute_saved_req(result_data)
+        self.execute_saved_req_check(result_data)
 
-    def execute_saved_req(self,result_data):
+    def execute_saved_req_check(self,result_data):
         runner = CliRunner()
         aristotleurl = 'http://0.0.0.0:8080'
         result = runner.invoke(execute_saved_req, ['--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl',aristotleurl])
