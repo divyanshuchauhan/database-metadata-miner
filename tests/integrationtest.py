@@ -37,15 +37,12 @@ class TestUtilsPy(unittest.TestCase):
     def test_miner(self):
         # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
-        result = runner.invoke(miner, ['--url','sqlite:///Test2.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'])
+        result = runner.invoke(miner, ['--url','sqlite:///tests/chinook.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'])
         self.dataset_id = result.output.replace('\n','')
-        print('hiiii')
-        print(self.dataset_id)
         result_data = utils.read_file('./tests/data_result.json')
         compare_data = utils.read_file('./tests/data.json')
         for distribution in compare_data:
             distribution['fields']['dataset'] = self.dataset_id
-        print('hiiii')
         self.assertEqual(result_data,compare_data)
         self.execute_saved_req_check(result_data)
 
@@ -89,10 +86,8 @@ class TestUtilsPy(unittest.TestCase):
                 slot['value'] = str(slot['value'])
             self.assertEqual(dist_json['slots'],dataset[distribution_name]['slots'])
             for data_element_json in dist_json['fields']['data_elements']:
-                print(data_element_json['data_element']['fields']['name'])
 
                 data_element_name = data_element_json['data_element']['fields']['name']
-                print(dataset[distribution_name]['columns'])
                 self.assertTrue(
                     data_element_name in dataset[distribution_name]['columns']
                     )
