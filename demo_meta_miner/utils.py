@@ -7,22 +7,17 @@ def request_post(auth, payload={}, other_field_data={},url='http://127.0.0.1:808
     Makes a post request to aristotle using the given payload.
     The other_field_data will be appened inside the 'fields' data in payload.
     """
-    # print('in post')
     headers = {
         'Authorization': 'Token  '+auth,
         'Content-Type': 'application/json'
         }
     for key, value in other_field_data.items():
         payload["fields"][key] = value
-    # print('in post1')    
     response = requests.post(
         url+'/api/v3_1/metadata/',
         data=json.dumps(payload),
         headers=headers
         )
-    # print('in post2')        
-    # print(response.json())
-    # print('Your UUID is {0}'.format(response.json()['created'][0]['uuid']))
     return response.json()['created'][0]['uuid']
 
 
@@ -63,15 +58,10 @@ def save_req_file(data, file_name):
     """
     Saves the data in the provided fileName.
     """
-    print('----write file-----')
-    print(data)
-    print(file_name)
     with open(file_name, 'w') as outfile:
         outfile.write(json.dumps(data, sort_keys=True, indent=4, ensure_ascii=False))
 
 def read_file(file_name):
-    print('----read file-----')
-    print(file_name)
     data = []
     with open(file_name, 'r') as fd:
         data = json.load(fd)

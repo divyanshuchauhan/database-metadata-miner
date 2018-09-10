@@ -25,14 +25,14 @@ class TestUtilsPy(unittest.TestCase):
             url = 'http://0.0.0.0:8080'
             )
         self.assertEqual({'detail': 'Invalid token.'},result.json())
-    def test_request_get_no_result_case2(self):
-        result = utils.request_get(
-            self.auth,
-            payload={},
-            uuid = '',
-            url = 'http://0.0.0.0:8080'
-            )
-        self.assertEqual({'count': 0, 'next': None, 'previous': None, 'results': []},result.json())
+    # def test_request_get_no_result_case2(self):
+    #     result = utils.request_get(
+    #         self.auth,
+    #         payload={},
+    #         uuid = '',
+    #         url = 'http://0.0.0.0:8080'
+    #         )
+    #     self.assertEqual({'count': 0, 'next': None, 'previous': None, 'results': []},result.json())
 
     def test_miner(self):
         # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
