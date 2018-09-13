@@ -75,7 +75,12 @@ def create_distribution_request(table_object,extra_information_distribution):
     slots_information_distribution.append({
             'name': "distribution",
             "type": "Aristotle DB Tools Field",
-            "value": [str(table), {'primary_keys': primary_keys}]
+            "value": str(table)
+            })
+    slots_information_distribution.append({
+            'name': "primary key",
+            "type": "Aristotle DB Tools Field",
+            "value": primary_keys
             })
     distribution = utils.create_req(
         model="distribution",

@@ -31,7 +31,7 @@ def execute_saved_req(auth, file, dbuuid, aristotleurl):
     existing_dataset = {}
     if dbuuid:
         try:
-            existing_dataset = create_dataset_structure(dbuuid,auth)
+            existing_dataset = create_dataset_structure(dbuuid,auth,aristotleurl)
         except ValueError as err:
             print(err)
             return
@@ -89,7 +89,7 @@ def get_value_domain(value_domain_payload, auth, aristotleurl):
             )
     return value_domain_id
 
-def create_dataset_structure(dbuuid,auth):
+def create_dataset_structure(dbuuid,auth,aristotleurl):
     """Returns the metadata schema for the given dbuuid"""
     datasetResponse = utils.request_get(
         auth=auth,
@@ -108,10 +108,11 @@ def create_dataset_structure(dbuuid,auth):
             uuid=dist['uuid'],
             url=aristotleurl
         )
+
         dist_slots_name = ''
         for value in dist_data.json()['slots']:
             if value['name'] == 'distribution':
-                dist_slots_name = ast.literal_eval(value['value'])[0]
+                dist_slots_name = value['value']
         dataset[dist_slots_name] = {'uuid': dist['uuid'] ,'tables': {}}
         for data_elements in dist_data.json()['fields']['data_elements']:
             dataset[dist_slots_name]['tables'][data_elements['logical_path']] = data_elements["data_element"]
