@@ -57,7 +57,7 @@
                     "logical_path": "artists.Name"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "artists"
         },
@@ -65,13 +65,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "artists"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "artists",
-                    {
-                        "primary_keys": [
-                            "artists.ArtistId"
-                        ]
-                    }
+                    "artists.ArtistId"
                 ]
             }
         ]
@@ -134,7 +134,7 @@
                     "logical_path": "demo.column2"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "demo"
         },
@@ -142,14 +142,14 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "demo"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "demo",
-                    {
-                        "primary_keys": [
-                            "demo.column1",
-                            "demo.column2"
-                        ]
-                    }
+                    "demo.column1",
+                    "demo.column2"
                 ]
             }
         ]
@@ -537,7 +537,7 @@
                     "logical_path": "employees.Email"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "employees"
         },
@@ -545,13 +545,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "employees"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "employees",
-                    {
-                        "primary_keys": [
-                            "employees.EmployeeId"
-                        ]
-                    }
+                    "employees.EmployeeId"
                 ]
             }
         ]
@@ -614,7 +614,7 @@
                     "logical_path": "genres.Name"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "genres"
         },
@@ -622,13 +622,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "genres"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "genres",
-                    {
-                        "primary_keys": [
-                            "genres.GenreId"
-                        ]
-                    }
+                    "genres.GenreId"
                 ]
             }
         ]
@@ -691,7 +691,7 @@
                     "logical_path": "media_types.Name"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "media_types"
         },
@@ -699,13 +699,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "media_types"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "media_types",
-                    {
-                        "primary_keys": [
-                            "media_types.MediaTypeId"
-                        ]
-                    }
+                    "media_types.MediaTypeId"
                 ]
             }
         ]
@@ -768,7 +768,7 @@
                     "logical_path": "playlists.Name"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "playlists"
         },
@@ -776,13 +776,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "playlists"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "playlists",
-                    {
-                        "primary_keys": [
-                            "playlists.PlaylistId"
-                        ]
-                    }
+                    "playlists.PlaylistId"
                 ]
             }
         ]
@@ -845,7 +845,7 @@
                     "logical_path": "sqlite_sequence.seq"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "sqlite_sequence"
         },
@@ -853,12 +853,12 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
-                "value": [
-                    "sqlite_sequence",
-                    {
-                        "primary_keys": []
-                    }
-                ]
+                "value": "sqlite_sequence"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": []
             }
         ]
     },
@@ -945,7 +945,7 @@
                     "logical_path": "sqlite_stat1.stat"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "sqlite_stat1"
         },
@@ -953,12 +953,12 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
-                "value": [
-                    "sqlite_stat1",
-                    {
-                        "primary_keys": []
-                    }
-                ]
+                "value": "sqlite_stat1"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": []
             }
         ]
     },
@@ -1045,7 +1045,7 @@
                     "logical_path": "albums.ArtistId"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "albums"
         },
@@ -1053,13 +1053,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "albums"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "albums",
-                    {
-                        "primary_keys": [
-                            "albums.AlbumId"
-                        ]
-                    }
+                    "albums.AlbumId"
                 ]
             }
         ]
@@ -1397,7 +1397,7 @@
                     "logical_path": "customers.SupportRepId"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "customers"
         },
@@ -1405,13 +1405,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "customers"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "customers",
-                    {
-                        "primary_keys": [
-                            "customers.CustomerId"
-                        ]
-                    }
+                    "customers.CustomerId"
                 ]
             }
         ]
@@ -1649,7 +1649,7 @@
                     "logical_path": "invoices.Total"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "invoices"
         },
@@ -1657,13 +1657,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "invoices"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "invoices",
-                    {
-                        "primary_keys": [
-                            "invoices.InvoiceId"
-                        ]
-                    }
+                    "invoices.InvoiceId"
                 ]
             }
         ]
@@ -1901,7 +1901,7 @@
                     "logical_path": "tracks.UnitPrice"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "tracks"
         },
@@ -1909,13 +1909,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "tracks"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "tracks",
-                    {
-                        "primary_keys": [
-                            "tracks.TrackId"
-                        ]
-                    }
+                    "tracks.TrackId"
                 ]
             }
         ]
@@ -2053,7 +2053,7 @@
                     "logical_path": "invoice_items.Quantity"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "invoice_items"
         },
@@ -2061,13 +2061,13 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "invoice_items"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "invoice_items",
-                    {
-                        "primary_keys": [
-                            "invoice_items.InvoiceLineId"
-                        ]
-                    }
+                    "invoice_items.InvoiceLineId"
                 ]
             }
         ]
@@ -2130,7 +2130,7 @@
                     "logical_path": "playlist_track.TrackId"
                 }
             ],
-            "dataset": "47a1835a-b49f-11e8-9da7-30e37a0dbfd3",
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
             "definition": "Placeholder",
             "name": "playlist_track"
         },
@@ -2138,14 +2138,14 @@
             {
                 "name": "distribution",
                 "type": "Aristotle DB Tools Field",
+                "value": "playlist_track"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
                 "value": [
-                    "playlist_track",
-                    {
-                        "primary_keys": [
-                            "playlist_track.PlaylistId",
-                            "playlist_track.TrackId"
-                        ]
-                    }
+                    "playlist_track.PlaylistId",
+                    "playlist_track.TrackId"
                 ]
             }
         ]
