@@ -26,7 +26,13 @@ import demo_meta_miner.utils as utils
     default='http://127.0.0.1:8080',
     help='Spicify the aristotle url'
     )
-def miner(url, database, auth, file, aristotleurl):
+@click.option(
+    '--verbose',
+    is_flag=True,
+    help="Will print verbose messages."
+    )
+
+def miner(url, database, auth, file, aristotleurl,verbose):
     """This script creates a data.json file,
     that contains all the database schema to be uploaded in Aristotle"""
     engine = create_engine(url)
@@ -41,7 +47,7 @@ def miner(url, database, auth, file, aristotleurl):
         name=database,
         app="aristotle_dse"
         )
-    dataset = utils.request_post(auth=auth, payload=dataset, url=aristotleurl)
+    dataset = utils.request_post(auth=auth, payload=dataset, url=aristotleurl,verbose=verbose)
     # import pdb; pdb.set_trace()
     for table_object in metadata.sorted_tables:
         # import pdb; pdb.set_trace()

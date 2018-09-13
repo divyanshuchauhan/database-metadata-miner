@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def request_post(auth, payload={}, other_field_data={},url='http://127.0.0.1:8080'):
+def request_post(auth, payload={}, other_field_data={},url='http://127.0.0.1:8080',verbose=False):
     """
     Makes a post request to aristotle using the given payload.
     The other_field_data will be appened inside the 'fields' data in payload.
@@ -18,6 +18,8 @@ def request_post(auth, payload={}, other_field_data={},url='http://127.0.0.1:808
         data=json.dumps(payload),
         headers=headers
         )
+    if verbose:
+        print(response.json())
     return response.json()['created'][0]['uuid']
 
 
