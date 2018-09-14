@@ -15,7 +15,12 @@ import requests
     default='6888c5aa-158c-11e7-803e-0242ac110017',
     help='Dataset Specification Set uuid'
     )
-def create_database(dssuuid):
+@click.option(
+    '--dbtype',
+    default='sqlite',
+    help='Dataset Specification Set uuid'
+    )
+def create_database(dssuuid,dbtype):
     db_uri = 'sqlite:///Test2.db'
     engine = create_engine(db_uri)
     meta = MetaData(engine)
@@ -56,9 +61,11 @@ def create_database(dssuuid):
         t1.append_column(column_definition)
     t1.append_column(Column('qwerty',Integer,primary_key=True))
 
-    print(CreateTable(t1).compile(dialect=sqlite.dialect()))
-    print(CreateTable(t1).compile(dialect=postgresql.dialect()))
-    print(CreateTable(t1).compile(dialect=mysql.dialect()))
+    try:
+        print(CreateTable(t1).compile(dialect=eval(dbtype).dialect()))
+    except NameError as err:
+            print("dbtype "+str(err))
+            return
 
     # meta.create_all()
 
