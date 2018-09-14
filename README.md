@@ -1,5 +1,7 @@
 # Database-Metadata-Miner
 
+|tci-build-status|
+
 ## What is it?
 Database-Metadata-Miner is a set of command line tools that helps in extracting the metadata schema of the database and uploading it to aristotle metedata registry.
 
