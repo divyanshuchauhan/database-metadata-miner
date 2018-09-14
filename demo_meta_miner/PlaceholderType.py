@@ -1,5 +1,6 @@
 import sqlalchemy.types as types
 
+
 class PlaceholderType(types.UserDefinedType):
     def __init__(self):
         # self.precision = precision
