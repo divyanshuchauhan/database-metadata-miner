@@ -25,13 +25,18 @@ from demo_meta_miner.AristotleDbTools import AristotleDbTools
     default='http://127.0.0.1:8080',
     help='Specify the aristotle url'
     )
-def execute_saved_req(auth, file, dbuuid, aristotleurl):
+@click.option(
+    '--verbose',
+    is_flag=True,
+    help="Will print verbose messages."
+    )
+def execute_saved_req(auth, file, dbuuid, aristotleurl,verbose):
     """This script consumes the json file to upload the metadata to Aristotle"""
     json_data = utils.read_file(file)
     existing_dataset = {}
     if dbuuid:
         try:
-            existing_dataset = create_dataset_structure(dbuuid,auth)
+            existing_dataset = create_dataset_structure(dbuuid,auth,aristotleurl,verbose)
         except ValueError as err:
             print(err)
             return
@@ -43,14 +48,15 @@ def execute_saved_req(auth, file, dbuuid, aristotleurl):
             distribution['fields']['uuid'] = existing_dataset[distribution_name]['uuid']
         data_elements = distribution['fields']['data_elements']
         for i, data_element_payload in enumerate(data_elements):
-            data_elements[i]['data_element'] = get_data_element(existing_dataset,data_element_payload,distribution_name,auth,aristotleurl)
+            data_elements[i]['data_element'] = get_data_element(existing_dataset,data_element_payload,distribution_name,auth,aristotleurl,verbose)
         utils.request_post(
             auth=auth,
             payload=distribution,
-            url=aristotleurl
+            url=aristotleurl,
+            verbose=verbose
             )
 
-def get_data_element(existing_dataset, data_element_payload, distribution_name, auth, aristotleurl):
+def get_data_element(existing_dataset, data_element_payload, distribution_name, auth, aristotleurl, verbose):
     """ Get the data element id. Either from existing dataset or by creating new"""
     logical_path = data_element_payload['logical_path']
     if (distribution_name in existing_dataset and 
@@ -58,16 +64,17 @@ def get_data_element(existing_dataset, data_element_payload, distribution_name, 
         data_element_id = existing_dataset[distribution_name]['tables'][logical_path]
     else:
         value_domain_payload = data_element_payload['data_element']['fields']['valueDomain']
-        value_domain_id = get_value_domain(value_domain_payload,auth,aristotleurl)
+        value_domain_id = get_value_domain(value_domain_payload,auth,aristotleurl,verbose)
         data_element_payload['data_element']['fields']['valueDomain'] = value_domain_id
         data_element_id = utils.request_post(
             auth=auth,
             payload=data_element_payload['data_element'],
-            url=aristotleurl
+            url=aristotleurl,
+            verbose=verbose
             )
     return data_element_id
 
-def get_value_domain(value_domain_payload, auth, aristotleurl):
+def get_value_domain(value_domain_payload, auth, aristotleurl, verbose):
     """ Get the value domain id. Either from existing value domain or by creating new"""
     valueDomainResponse = utils.request_get(
         auth=auth,
@@ -85,11 +92,12 @@ def get_value_domain(value_domain_payload, auth, aristotleurl):
         value_domain_id = utils.request_post(
             auth=auth,
             payload=value_domain_payload,
-            url=aristotleurl
+            url=aristotleurl,
+            verbose=verbose
             )
     return value_domain_id
 
-def create_dataset_structure(dbuuid,auth):
+def create_dataset_structure(dbuuid, auth, aristotleurl, verbose):
     """Returns the metadata schema for the given dbuuid"""
     datasetResponse = utils.request_get(
         auth=auth,
@@ -108,10 +116,11 @@ def create_dataset_structure(dbuuid,auth):
             uuid=dist['uuid'],
             url=aristotleurl
         )
+
         dist_slots_name = ''
         for value in dist_data.json()['slots']:
             if value['name'] == 'distribution':
-                dist_slots_name = ast.literal_eval(value['value'])[0]
+                dist_slots_name = value['value']
         dataset[dist_slots_name] = {'uuid': dist['uuid'] ,'tables': {}}
         for data_elements in dist_data.json()['fields']['data_elements']:
             dataset[dist_slots_name]['tables'][data_elements['logical_path']] = data_elements["data_element"]

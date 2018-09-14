@@ -37,7 +37,7 @@ class TestUtilsPy(unittest.TestCase):
     def test_miner(self):
         # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
-        result = runner.invoke(miner, ['--url','sqlite:///tests/chinook.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'])
+        result = runner.invoke(miner, ['--url','sqlite:///tests/chinook.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'], '--verbose', False)
         self.dataset_id = result.output.replace('\n','')
         result_data = utils.read_file('./tests/data_result.json')
         compare_data = utils.read_file('./tests/data.json')
@@ -49,7 +49,7 @@ class TestUtilsPy(unittest.TestCase):
     def execute_saved_req_check(self,result_data):
         runner = CliRunner()
         aristotleurl = 'http://0.0.0.0:8080'
-        result = runner.invoke(execute_saved_req, ['--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl',aristotleurl])
+        result = runner.invoke(execute_saved_req, ['--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl',aristotleurl], '--verbose', False)
         datasetResponse = utils.request_get(
             auth=self.auth,
             payload = {
