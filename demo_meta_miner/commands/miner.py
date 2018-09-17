@@ -30,8 +30,10 @@ import demo_meta_miner.utils as utils
     help="Will print verbose messages."
     )
 def miner(url, database, auth, file, aristotleurl, verbose):
-    """This script creates a data.json file,
-    that contains all the database schema to be uploaded in Aristotle"""
+    """
+    This script creates a data.json file,
+    that contains all the database schema to be uploaded in Aristotle
+    """
     engine = create_engine(url)
     metadata = MetaData()
     conn = engine.connect()
@@ -75,6 +77,9 @@ def miner(url, database, auth, file, aristotleurl, verbose):
 
 
 def create_distribution_request(table_object, extra_information_distribution):
+    """
+    Create a json payload for distribution request
+    """
     slots_information_distribution = []
     table = table_object.name
     primary_keys = []
@@ -101,6 +106,9 @@ def create_distribution_request(table_object, extra_information_distribution):
 
 
 def create_data_element_request(columns, value_domain):
+    """
+    Create a json payload for data element request
+    """
     extra_information_dataelement = {"valueDomain": value_domain}
     data_element = utils.create_req(
         model="dataelement",
@@ -112,6 +120,9 @@ def create_data_element_request(columns, value_domain):
 
 
 def create_value_domain_request(columns):
+    """
+    Create a json payload for value domain request
+    """
     column_type = repr(columns.type)
     extra_information_value_domain = {}
     if 'enum' in column_type.lower():

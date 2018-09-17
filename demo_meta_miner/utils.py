@@ -68,6 +68,9 @@ def save_req_file(data, file_name):
 
 
 def read_file(file_name):
+    """
+    Return the json data from the provided file
+    """
     data = []
     with open(file_name, 'r') as fd:
         data = json.load(fd)
@@ -75,6 +78,9 @@ def read_file(file_name):
 
 
 def get_miner_class(command):
+    """
+    Get the commands for the grouping tool
+    """
     from importlib import import_module
     module = import_module("demo_meta_miner.commands.%s" % command.lower())
     klass = getattr(module, command.lower())

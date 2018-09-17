@@ -25,7 +25,9 @@ import requests
     help='Specify the aristotle url'
     )
 def create_database(dssuuid, dbtype, aristotleurl):
-    """Creates a create database statement for given dss and database type"""
+    """
+    Creates a create database statement for given dss and database type
+    """
     column_definitions = []
     column_names = []
     meta = MetaData()
@@ -58,7 +60,9 @@ def create_database(dssuuid, dbtype, aristotleurl):
 
 
 def get_dss_data(aristotleurl, dssuuid):
-    """Fetch the dss data from server with graphql"""
+    """
+    Fetch the dss data from server with graphql
+    """
     grapgqlurl = aristotleurl+'/api/graphql/api'
     query = 'query ($uuid: UUID){datasetSpecifications (uuid: $uuid)' \
         '{edges {node {name,dssclusterinclusionSet {dss {name}}' \
@@ -78,7 +82,9 @@ def get_dss_data(aristotleurl, dssuuid):
 
 
 def create_column_name(data_element_name, column_names):
-    """Create unique column name for the new table"""
+    """
+    Create unique column name for the new table
+    """
     column_name = re.sub(
             '[^a-zA-Z0-9\n\.]', '_', data_element_name
             ).replace('__', '_')[:60].upper()
@@ -90,7 +96,9 @@ def create_column_name(data_element_name, column_names):
 
 
 def get_value_domain(data_element):
-    """Predict the value domain from the given name"""
+    """
+    Predict the value domain from the given name
+    """
     value_domain = PlaceholderType()
     if data_element['dataElement']['valueDomain']:
         data_value_domain = data_element['dataElement']['valueDomain']

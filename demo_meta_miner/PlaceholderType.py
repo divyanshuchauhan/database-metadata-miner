@@ -2,7 +2,9 @@ import sqlalchemy.types as types
 
 
 class PlaceholderType(types.UserDefinedType):
-    """New sqlalchemy type for undefined values, used while creating table"""
+    """
+    New sqlalchemy type for undefined values, used while creating table
+    """
     def __init__(self):
         pass
 
