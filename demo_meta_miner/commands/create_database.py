@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column
+from sqlalchemy import MetaData, Table, Column
 from sqlalchemy.schema import CreateTable
 from demo_meta_miner.PlaceholderType import PlaceholderType
 from sqlalchemy.types import Date, Integer
@@ -28,7 +28,7 @@ def create_database(dssuuid, dbtype, aristotleurl):
     column_definitions = []
     column_names = []
     meta = MetaData()
-    response = get_dss_data(aristotleurl,dssuuid)
+    response = get_dss_data(aristotleurl, dssuuid)
     if response.status_code != 200:
         print(
             "Given {} aristotleurl does not contain {} dssuuid"
@@ -56,7 +56,7 @@ def create_database(dssuuid, dbtype, aristotleurl):
             return
 
 
-def get_dss_data(aristotleurl,dssuuid):
+def get_dss_data(aristotleurl, dssuuid):
     grapgqlurl = aristotleurl+'/api/graphql/api'
     query = 'query {datasetSpecifications (uuid: "' + dssuuid + \
         '") {edges {node {name,dssclusterinclusionSet {dss {name}}' \
@@ -72,6 +72,7 @@ def get_dss_data(aristotleurl,dssuuid):
         )
     return response
 
+
 def create_column_name(data_element_name, column_names):
     column_name = re.sub(
             '[^a-zA-Z0-9\n\.]', '_', data_element_name
@@ -79,7 +80,7 @@ def create_column_name(data_element_name, column_names):
     i = 1
     while column_name in column_names:
         column_name = column_name[:60] + "_{}".format(i)
-        i = i+1   
+        i = i+1
     return column_name
 
 
