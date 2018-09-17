@@ -1,13 +1,10 @@
-# import json
 import demo_meta_miner.utils as utils
 import click
-# from demo_meta_miner.AristotleDbTools import AristotleDbTools
 
 
 @click.command()
 @click.option(
     '--auth',
-    default='6da4e3f4d662972428d369a11a5bdf153e202d51',
     help='Authentication token'
     )
 @click.option(
@@ -44,7 +41,6 @@ def execute_saved_req(auth, file, dbuuid, aristotleurl, verbose):
         except ValueError as err:
             print(err)
             return
-    # import pdb; pdb.set_trace()
     for distribution in json_data:
         distribution_name = distribution['fields']['name']
         if distribution_name in existing_dataset:

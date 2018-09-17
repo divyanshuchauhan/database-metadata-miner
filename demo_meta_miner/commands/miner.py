@@ -1,19 +1,17 @@
 from sqlalchemy import create_engine, MetaData
 import click
 import demo_meta_miner.utils as utils
-# from demo_meta_miner.save_req import save_req
 
 
 @click.command()
 @click.option('--url', default='sqlite:///Test2.db', help='Full Database URl')
 @click.option(
     '--database',
-    default='testDatabase1',
+    default='testDatabase',
     help='Database name on aristotle'
     )
 @click.option(
     '--auth',
-    default='6da4e3f4d662972428d369a11a5bdf153e202d51',
     help='Authentication token'
     )
 @click.option(
@@ -52,9 +50,7 @@ def miner(url, database, auth, file, aristotleurl, verbose):
         url=aristotleurl,
         verbose=verbose
         )
-    # import pdb; pdb.set_trace()
     for table_object in metadata.sorted_tables:
-        # import pdb; pdb.set_trace()
         table = table_object.name
         extra_information_distribution = {
             "data_elements": [],
@@ -73,7 +69,6 @@ def miner(url, database, auth, file, aristotleurl, verbose):
             extra_information_distribution
             )
         distributions.append(distribution)
-    # print(distributions)
     utils.save_req_file(distributions, file)
     conn.close()
     print(dataset)
@@ -83,7 +78,6 @@ def create_distribution_request(table_object, extra_information_distribution):
     slots_information_distribution = []
     table = table_object.name
     primary_keys = []
-    # import pdb; pdb.set_trace()
     for pk in table_object.primary_key.columns_autoinc_first:
         primary_keys.append(table + '.' + pk.name)
     slots_information_distribution.append({
@@ -118,7 +112,6 @@ def create_data_element_request(columns, value_domain):
 
 
 def create_value_domain_request(columns):
-    # import pdb; pdb.set_trace()
     column_type = repr(columns.type)
     extra_information_value_domain = {}
     if 'enum' in column_type.lower():
