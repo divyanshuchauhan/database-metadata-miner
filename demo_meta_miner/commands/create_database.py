@@ -17,7 +17,7 @@ import requests
 @click.option(
     '--dbtype',
     default='sqlite',
-    help='Dataset Specification Set uuid'
+    help='Database type, to generate query for'
     )
 @click.option(
     '--aristotleurl',
