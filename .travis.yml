@@ -1,6 +1,8 @@
 language: python
 python:
   - '3.6'
+install:
+  - pip install python-coveralls
 before_script:
   - pip install git+https://github.com/divyanshuchauhan/aristotle-metadata-registry.git@api_fixes
   - pip install -r ./test_project/requirements.txt
@@ -18,4 +20,5 @@ script:
   - echo $output
   - python -m unittest tests.utils_unittest
   - test_auth=$output python -m unittest tests.integrationtest
-
+after_success:
+  - coveralls
