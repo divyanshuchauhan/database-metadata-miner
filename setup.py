@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="demo_meta_miner",
-    version="0.0.18",
+    version="0.0.19",
     author="Divyanshu",
     author_email="divyanshuchauhan0208@gmail.com",
     description="A small example package",

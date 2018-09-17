@@ -1,13 +1,10 @@
-# import json
 import demo_meta_miner.utils as utils
 import click
-# from demo_meta_miner.AristotleDbTools import AristotleDbTools
 
 
 @click.command()
 @click.option(
     '--auth',
-    default='6da4e3f4d662972428d369a11a5bdf153e202d51',
     help='Authentication token'
     )
 @click.option(
@@ -31,7 +28,9 @@ import click
     help="Will print verbose messages."
     )
 def execute_saved_req(auth, file, dbuuid, aristotleurl, verbose):
-    """This script consumes the json file to upload metadata to Aristotle"""
+    """
+    This script consumes the json file to upload metadata to Aristotle
+    """
     json_data = utils.read_file(file)
     existing_dataset = {}
     if dbuuid:
@@ -44,7 +43,6 @@ def execute_saved_req(auth, file, dbuuid, aristotleurl, verbose):
         except ValueError as err:
             print(err)
             return
-    # import pdb; pdb.set_trace()
     for distribution in json_data:
         distribution_name = distribution['fields']['name']
         if distribution_name in existing_dataset:
@@ -71,7 +69,9 @@ def execute_saved_req(auth, file, dbuuid, aristotleurl, verbose):
 
 def get_data_element(existing_dataset, data_element_payload, distribution_name,
                      auth, aristotleurl, verbose):
-    """ Get data element id. Either from existing dataset or by creating new"""
+    """
+    Get data element id. Either from existing dataset or by creating new
+    """
     logical_path = data_element_payload['logical_path']
     if (distribution_name in existing_dataset and
             logical_path in existing_dataset[distribution_name]['tables']):
@@ -101,7 +101,9 @@ def get_data_element(existing_dataset, data_element_payload, distribution_name,
 
 
 def get_value_domain(value_domain_payload, auth, aristotleurl, verbose):
-    """ Get value domain id. Either from existing or by creating new"""
+    """
+    Get value domain id. Either from existing or by creating new
+    """
     valueDomainResponse = utils.request_get(
         auth=auth,
         payload={
@@ -124,7 +126,9 @@ def get_value_domain(value_domain_payload, auth, aristotleurl, verbose):
 
 
 def create_dataset_structure(dbuuid, auth, aristotleurl, verbose):
-    """Returns the metadata schema for the given dbuuid"""
+    """
+    Returns the metadata schema for the given dbuuid
+    """
     datasetResponse = utils.request_get(
         auth=auth,
         payload={
