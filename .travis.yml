@@ -17,8 +17,8 @@ script:
   - ./test_project/manage.py create_access_token
   - output=`./test_project/manage.py create_access_token|tail -n 1`
   - echo $output
-  - python -m unittest tests.utils_unittest
-  - test_auth=$output python -m unittest tests.integrationtest
-  - coverage run --source=demo_meta_miner setup.py test
+  - coverage run -m unittest discover -s tests -p '*test.py'
+
+after_success:
   - coveralls
 
