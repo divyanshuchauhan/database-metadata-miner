@@ -144,5 +144,5 @@ def create_value_domain_request(columns):
     return value_domain
 
 
-if __name__ == '__main__': # pragma: no cover
+if __name__ == '__main__':
     miner()

@@ -77,7 +77,7 @@ def read_file(file_name):
     return data
 
 
-def get_miner_class(command): # pragma: no cover
+def get_miner_class(command):
     """
     Get the commands for the grouping tool
     """
