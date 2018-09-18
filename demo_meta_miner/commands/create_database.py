@@ -109,5 +109,5 @@ def get_value_domain(data_element):
     return value_domain
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     create_database()

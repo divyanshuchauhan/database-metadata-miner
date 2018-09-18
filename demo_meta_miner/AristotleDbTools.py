@@ -5,7 +5,7 @@ from demo_meta_miner.utils import get_miner_class
 plugin_folder = os.path.join(os.path.dirname(__file__), 'commands')
 
 
-class AristotleDbTools(click.MultiCommand):
+class AristotleDbTools(click.MultiCommand): # pragma: no cover
 
     def list_commands(self, ctx):
         rv = []
@@ -28,5 +28,5 @@ def cli():
     pass
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     cli()
