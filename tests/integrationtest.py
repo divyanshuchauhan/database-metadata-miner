@@ -84,6 +84,7 @@ class TestUtilsPy(unittest.TestCase):
                     data_element_name in dataset[distribution_name]['columns']
                     )
                 self.assertEqual(data_element_json['data_element']['fields']['valueDomain']['fields']['name'],dataset[distribution_name]['columns'][data_element_name])
+        result = runner.invoke(execute_saved_req, ['--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl',aristotleurl, '--dbuuid', self.dataset_id], '--verbose', False)
         
 
     def test_create_database(self):
