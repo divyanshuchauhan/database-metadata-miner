@@ -94,6 +94,20 @@ class TestUtilsPy(unittest.TestCase):
         self.assertTrue('CREATE TABLE' in result)
 
 
+    def test_create_database_invalid_dbtype(self):
+        runner = CliRunner()
+        result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac110017','--dbtype','sqlit','--aristotleurl', 'https://registry.aristotlemetadata.com'])
+        result = result.output.replace('\n','')
+        self.assertEqual("dbtype name 'sqlit' is not defined",result)
+
+
+    def test_create_database_invalid_url(self):
+        runner = CliRunner()
+        result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac11001','--dbtype','sqlite','--aristotleurl', 'https://registry.aristotlemetadata.com'])
+        result = result.output.replace('\n','')
+        self.assertEqual("Given https://registry.aristotlemetadata.com aristotleurl does not contain 6aee1c50-158c-11e7-803e-0242ac11001 dssuuid",result)
+
+
 if __name__ == '__main__':
     TestUtilsPy.auth = os.environ.get('test_auth', TestUtilsPy.auth) 
     unittest.main()
