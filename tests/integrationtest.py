@@ -84,6 +84,7 @@ class TestUtilsPy(unittest.TestCase):
                     data_element_name in dataset[distribution_name]['columns']
                     )
                 self.assertEqual(data_element_json['data_element']['fields']['valueDomain']['fields']['name'],dataset[distribution_name]['columns'][data_element_name])
+        result = runner.invoke(execute_saved_req, ['--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl',aristotleurl, '--dbuuid', self.dataset_id], '--verbose', False)
         
 
     def test_create_database(self):
@@ -91,6 +92,20 @@ class TestUtilsPy(unittest.TestCase):
         result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac110017','--dbtype','sqlite','--aristotleurl', 'https://registry.aristotlemetadata.com'])
         result = result.output.replace('\n','')
         self.assertTrue('CREATE TABLE' in result)
+
+
+    def test_create_database_invalid_dbtype(self):
+        runner = CliRunner()
+        result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac110017','--dbtype','sqlit','--aristotleurl', 'https://registry.aristotlemetadata.com'])
+        result = result.output.replace('\n','')
+        self.assertEqual("dbtype name 'sqlit' is not defined",result)
+
+
+    def test_create_database_invalid_url(self):
+        runner = CliRunner()
+        result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac11001','--dbtype','sqlite','--aristotleurl', 'https://registry.aristotlemetadata.com'])
+        result = result.output.replace('\n','')
+        self.assertEqual("Given https://registry.aristotlemetadata.com aristotleurl does not contain 6aee1c50-158c-11e7-803e-0242ac11001 dssuuid",result)
 
 
 if __name__ == '__main__':
