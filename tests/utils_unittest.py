@@ -99,7 +99,9 @@ class TestUtilsPy(unittest.TestCase):
 
         result = utils.request_post(
             "testAuth",
-            payload={'valuedomain':'test'}
+            payload={'dataelement':'test', "fields":{}},
+            other_field_data={'valuedomain':'testvaluedomain'},
+            verbose=True
             )
         self.assertEqual('uuid1',result)
 
