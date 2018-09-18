@@ -4,6 +4,8 @@ import os
 import demo_meta_miner.utils as utils
 from demo_meta_miner.commands.miner import miner
 from demo_meta_miner.commands.execute_saved_req import execute_saved_req
+from demo_meta_miner.commands.create_database import create_database
+
 import json
 import responses
 import click
@@ -14,8 +16,6 @@ from subprocess import call,check_output
 class TestUtilsPy(unittest.TestCase):
     # auth = os.environ.get('test_auth')
     auth = str(check_output("./test_project/manage.py create_access_token|tail -1",shell=True).decode('UTF-8')).rstrip('\n')
-    # x = check_output("(ls -l|tail -1)",shell=True).decode('UTF-8')
-    # import pdb; pdb.set_trace()
     dataset_id = ''
     def test_request_get_no_result_case(self):
         result = utils.request_get(
@@ -25,17 +25,9 @@ class TestUtilsPy(unittest.TestCase):
             url = 'http://0.0.0.0:8080'
             )
         self.assertEqual({'detail': 'Invalid token.'},result.json())
-    # def test_request_get_no_result_case2(self):
-    #     result = utils.request_get(
-    #         self.auth,
-    #         payload={},
-    #         uuid = '',
-    #         url = 'http://0.0.0.0:8080'
-    #         )
-    #     self.assertEqual({'count': 0, 'next': None, 'previous': None, 'results': []},result.json())
+
 
     def test_miner(self):
-        # self.auth = call(["./test_project/manage.py create_access_token"],shell=True)
         runner = CliRunner()
         result = runner.invoke(miner, ['--url','sqlite:///tests/chinook.db','--database','testDatabase1','--auth', self.auth,'--file','./tests/data_result.json','--aristotleurl','http://0.0.0.0:8080'], '--verbose', False)
         self.dataset_id = result.output.replace('\n','')
@@ -93,6 +85,12 @@ class TestUtilsPy(unittest.TestCase):
                     )
                 self.assertEqual(data_element_json['data_element']['fields']['valueDomain']['fields']['name'],dataset[distribution_name]['columns'][data_element_name])
         
+
+    def test_create_database(self):
+        runner = CliRunner()
+        result = runner.invoke(create_database, ['--dssuuid','6aee1c50-158c-11e7-803e-0242ac110017','--dbtype','sqlite','--aristotleurl', 'https://registry.aristotlemetadata.com'])
+        result = result.output.replace('\n','')
+        self.assertTrue('CREATE TABLE' in result)
 
 
 if __name__ == '__main__':

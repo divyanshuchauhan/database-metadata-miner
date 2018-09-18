@@ -2,6 +2,7 @@ language: python
 python:
   - '3.6'
 before_script:
+  - pip install coveralls
   - pip install git+https://github.com/divyanshuchauhan/aristotle-metadata-registry.git@api_fixes
   - pip install -r ./test_project/requirements.txt
   - pip install django-filter==1.1.0
@@ -16,6 +17,8 @@ script:
   - ./test_project/manage.py create_access_token
   - output=`./test_project/manage.py create_access_token|tail -n 1`
   - echo $output
-  - python -m unittest tests.utils_unittest
-  - test_auth=$output python -m unittest tests.integrationtest
+  - coverage run --source=demo_meta_miner -m unittest discover -s tests -p '*test.py'
+
+after_success:
+  - coveralls
 
