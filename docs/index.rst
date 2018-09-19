@@ -21,7 +21,7 @@ It is a database independent tool and would work for any relational database.
 Installing
 ----------
 
-python3 -m pip install --index-url https://test.pypi.org/project/ --extra-index-url https://pypi.org/simple demo-meta-miner
+``python3 -m pip install --index-url https://test.pypi.org/project/ --extra-index-url https://pypi.org/simple demo-meta-miner``
 
 
 How to use it?
