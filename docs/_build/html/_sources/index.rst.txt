@@ -6,6 +6,15 @@
 Welcome to Database-Metadata-Miner's documentation!
 ===================================================
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+
+
+Indices and tables
+==================
+
 What is it?
 -----------
 
@@ -31,16 +40,6 @@ This command extracts metadata from the given database and stores it in a json f
 Options:
 
 - --url: Database url from which the metedata has to be extracted
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-
-Indices and tables
-==================
 
 * :ref:`genindex`
 * :ref:`modindex`
