@@ -40,7 +40,28 @@
             
   <div class="section" id="welcome-to-database-metadata-miner-s-documentation">
 <h1>Welcome to Database-Metadata-Miner’s documentation!<a class="headerlink" href="#welcome-to-database-metadata-miner-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Database-Metadata-Miner is a set of command line tools that help in extracting the metadata schema of the database and uploading it to aristotle metedata registry.</p>
+<p>It is a database independent tool and would work for any relational database.</p>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>python3 -m pip install –index-url <a class="reference external" href="https://test.pypi.org/project/">https://test.pypi.org/project/</a> –extra-index-url <a class="reference external" href="https://pypi.org/simple">https://pypi.org/simple</a> demo-meta-miner</p>
+</div>
+<div class="section" id="how-to-use-it">
+<h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="miner-command">
+<h3>Miner command:<a class="headerlink" href="#miner-command" title="Permalink to this headline">¶</a></h3>
+<p>This command extracts metadata from the given database and stores it in a json file in the location from where command is run.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">miner</span> <span class="pre">--url</span> <span class="pre">&lt;db</span> <span class="pre">url&gt;</span> <span class="pre">--auth</span> <span class="pre">&lt;auth</span> <span class="pre">token&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;filename</span> <span class="pre">you</span> <span class="pre">prefer</span> <span class="pre">i.e.</span> <span class="pre">data.json&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;The</span> <span class="pre">url</span> <span class="pre">aristotle</span> <span class="pre">is</span> <span class="pre">setup</span> <span class="pre">on&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;To</span> <span class="pre">print</span> <span class="pre">the</span> <span class="pre">background</span> <span class="pre">information&gt;</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–url: Database url from which the metedata has to be extracted</li>
+</ul>
 <div class="toctree-wrapper compound">
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
