@@ -40,6 +40,8 @@
             
   <div class="section" id="welcome-to-database-metadata-miner-s-documentation">
 <h1>Welcome to Database-Metadata-Miner’s documentation!<a class="headerlink" href="#welcome-to-database-metadata-miner-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
 <div class="section" id="what-is-it">
 <h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
 <p>Database-Metadata-Miner is a set of command line tools that help in extracting the metadata schema of the database and uploading it to aristotle metedata registry.</p>
@@ -54,13 +56,40 @@
 <div class="section" id="miner-command">
 <h3>Miner command:<a class="headerlink" href="#miner-command" title="Permalink to this headline">¶</a></h3>
 <p>This command extracts metadata from the given database and stores it in a json file in the location from where command is run.</p>
-<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">miner</span> <span class="pre">--url</span> <span class="pre">&lt;db</span> <span class="pre">url&gt;</span> <span class="pre">--auth</span> <span class="pre">&lt;auth</span> <span class="pre">token&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;filename</span> <span class="pre">you</span> <span class="pre">prefer</span> <span class="pre">i.e.</span> <span class="pre">data.json&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;The</span> <span class="pre">url</span> <span class="pre">aristotle</span> <span class="pre">is</span> <span class="pre">setup</span> <span class="pre">on&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;To</span> <span class="pre">print</span> <span class="pre">the</span> <span class="pre">background</span> <span class="pre">information&gt;</span></code></p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">miner</span> <span class="pre">--url</span> <span class="pre">&lt;&gt;</span> <span class="pre">--auth</span> <span class="pre">&lt;&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;&gt;</span></code></p>
 <p>Options:</p>
 <ul class="simple">
 <li>–url: Database url from which the metedata has to be extracted</li>
+<li>–auth: Authentication token, which can be generated from aristotleurl + /api/token/list/</li>
+<li>–file: Name of the file that contains the output json</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
 </ul>
-<div class="toctree-wrapper compound">
 </div>
+<div class="section" id="execute-saved-req-command">
+<h3>execute_saved_req command:<a class="headerlink" href="#execute-saved-req-command" title="Permalink to this headline">¶</a></h3>
+<p>This command executes and upload the data to aristotle endpoint from the json file provided by the miner command.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">execute_saved_req</span> <span class="pre">--auth</span> <span class="pre">&lt;&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;&gt;</span> <span class="pre">--dbuuid</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–auth: Authentication token, which can be generated from aristotleurl + /api/token/list/</li>
+<li>–file: Name of the file that contains the output json from the miner command</li>
+<li>–dbuuid: Database UUID, used for uploading changes to this DB UUID (Optional)</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
+</ul>
+</div>
+<div class="section" id="create-database-command">
+<h3>create_database command:<a class="headerlink" href="#create-database-command" title="Permalink to this headline">¶</a></h3>
+<p>This command is used to generate a create table statement from the dataset specification set in aristotle.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">create_database</span> <span class="pre">--dssuuid</span> <span class="pre">&lt;&gt;</span> <span class="pre">--dbtype</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;&gt;</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–dssuuid: dataset specification UUID</li>
+<li>–dbtype: Database type for which to create query, options: postgresql, mysql, sqlite, oracle, firebird, sybase</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
+</ul>
 </div>
 </div>
 </div>
@@ -68,7 +97,6 @@
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
 <li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
