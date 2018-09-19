@@ -73,6 +73,13 @@ Options:
 - --verbose: Prints internal statements (Optional)
 
 
+Additional Information
+----------------------
+
+- Chinook db is used for integration testing. It can be downloaded from http://www.sqlitetutorial.net/sqlite-sample-database/
+
+
+
 Indices and tables
 ==================
 
