@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/divyanshuchauhan/database-metadata-miner.svg?branch=master)](https://travis-ci.org/divyanshuchauhan/database-metadata-miner)
 [![Coverage Status](https://coveralls.io/repos/github/divyanshuchauhan/database-metadata-miner/badge.svg?branch=master)](https://coveralls.io/github/divyanshuchauhan/database-metadata-miner?branch=master)
+[![Documentation Status](https://readthedocs.org/projects/database-metadata-miner/badge/?version=latest)](https://database-metadata-miner.readthedocs.io/en/latest/?badge=latest)
+
 
 ## What is it?
 Database-Metadata-Miner is a set of command line tools that helps in extracting the metadata schema of the database and uploading it to aristotle metedata registry.
