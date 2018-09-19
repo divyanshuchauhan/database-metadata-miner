@@ -28,3 +28,6 @@ Create database tool:
 This tool is used to generate a create table statement from the dataset specification set in aristotle.
 
 `AristotleDbTools create_database --dssuuid <dataset specification uuid> --dbtype <Database for which to create query, options: postgresql, mysql, sqlite, oracle, firebird, sybase> --aristotleurl <The url aristotle is setup on> --verbose <To print the background information>`
+
+
+Chinook db is used for integration testing. It is downloaded from http://www.sqlitetutorial.net/sqlite-sample-database/

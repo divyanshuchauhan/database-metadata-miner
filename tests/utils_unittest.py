@@ -4,7 +4,8 @@ import os
 import demo_meta_miner.utils as utils
 import json
 import responses
-
+from demo_meta_miner.AristotleDbTools import AristotleDbTools
+from click.core import Command
 
 class TestUtilsPy(unittest.TestCase):
 
@@ -98,9 +99,23 @@ class TestUtilsPy(unittest.TestCase):
 
         result = utils.request_post(
             "testAuth",
-            payload={'valuedomain':'test'}
+            payload={'dataelement':'test', "fields":{}},
+            other_field_data={'valuedomain':'testvaluedomain'},
+            verbose=True
             )
         self.assertEqual('uuid1',result)
+
+    def test_AristotleDbTools_grouping_list(self):
+        dbTool = AristotleDbTools()
+        result = dbTool.list_commands('test')
+        expected_output = ['create_database', 'execute_saved_req', 'miner']
+        self.assertEqual(expected_output,result)
+
+    def test_AristotleDbTools_grouping_get(self):
+        dbTool = AristotleDbTools()
+        result = dbTool.get_command('test','create_database')
+        expected_output = ['create_database', 'execute_saved_req', 'miner']
+        self.assertTrue(type(result) is Command)
 
 
 if __name__ == '__main__':
