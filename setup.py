@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="demo_meta_miner",
-    version="0.0.16",
+    version="0.0.19",
     author="Divyanshu",
     author_email="divyanshuchauhan0208@gmail.com",
     description="A small example package",
@@ -16,8 +16,7 @@ setuptools.setup(
     python_requires='>=3',
     entry_points={
         'console_scripts': [
-            'miner = demo_meta_miner.miner:demo',
-            'execute_saved_req = demo_meta_miner.execute_saved_req:execute_migration',
+            'AristotleDbTools = demo_meta_miner.AristotleDbTools:cli',
         ],
     },
     classifiers=[
@@ -26,11 +25,11 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "click",
-        "sqlalchemy",
-        "requests",
-        "psycopg2",
-        "mysqlclient"
+        "click~=6.0",
+        "sqlalchemy~=1.2.0",
+        "requests~=2.19.0",
+        "psycopg2~=2.7.0",
+        "mysqlclient~=1.3.0"
         
     ]
 )

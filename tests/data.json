@@ -1,0 +1,2153 @@
+[
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "ArtistId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "artists.ArtistId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=120)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "artists.Name"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "artists"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "artists"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "artists.ArtistId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "column1",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "demo.column1"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "column2",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "demo.column2"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "demo"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "demo"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "demo.column1",
+                    "demo.column2"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "EmployeeId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.EmployeeId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "LastName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=20)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.LastName"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "FirstName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=20)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.FirstName"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Title",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=30)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Title"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "ReportsTo",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.ReportsTo"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BirthDate",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "DATETIME()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.BirthDate"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "HireDate",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "DATETIME()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.HireDate"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Address",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=70)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Address"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "City",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.City"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "State",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.State"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Country",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Country"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "PostalCode",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=10)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.PostalCode"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Phone",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=24)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Phone"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Fax",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=24)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Fax"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Email",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=60)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "employees.Email"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "employees"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "employees"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "employees.EmployeeId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "GenreId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "genres.GenreId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=120)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "genres.Name"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "genres"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "genres"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "genres.GenreId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "MediaTypeId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "media_types.MediaTypeId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=120)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "media_types.Name"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "media_types"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "media_types"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "media_types.MediaTypeId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "PlaylistId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "playlists.PlaylistId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=120)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "playlists.Name"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "playlists"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "playlists"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "playlists.PlaylistId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NullType()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "sqlite_sequence.name"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "seq",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NullType()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "sqlite_sequence.seq"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "sqlite_sequence"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "sqlite_sequence"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": []
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "tbl",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NullType()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "sqlite_stat1.tbl"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "idx",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NullType()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "sqlite_stat1.idx"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "stat",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NullType()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "sqlite_stat1.stat"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "sqlite_stat1"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "sqlite_stat1"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": []
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "AlbumId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "albums.AlbumId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Title",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=160)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "albums.Title"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "ArtistId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "albums.ArtistId"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "albums"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "albums"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "albums.AlbumId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "CustomerId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.CustomerId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "FirstName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.FirstName"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "LastName",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=20)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.LastName"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Company",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=80)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Company"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Address",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=70)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Address"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "City",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.City"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "State",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.State"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Country",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Country"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "PostalCode",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=10)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.PostalCode"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Phone",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=24)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Phone"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Fax",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=24)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Fax"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Email",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=60)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.Email"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "SupportRepId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "customers.SupportRepId"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "customers"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "customers"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "customers.CustomerId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "InvoiceId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.InvoiceId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "CustomerId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.CustomerId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "InvoiceDate",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "DATETIME()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.InvoiceDate"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BillingAddress",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=70)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.BillingAddress"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BillingCity",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.BillingCity"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BillingState",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.BillingState"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BillingCountry",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=40)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.BillingCountry"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "BillingPostalCode",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=10)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.BillingPostalCode"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Total",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NUMERIC(precision=10, scale=2)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoices.Total"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "invoices"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "invoices"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "invoices.InvoiceId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "TrackId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.TrackId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Name",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=200)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.Name"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "AlbumId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.AlbumId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "MediaTypeId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.MediaTypeId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "GenreId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.GenreId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Composer",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NVARCHAR(length=220)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.Composer"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Milliseconds",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.Milliseconds"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Bytes",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.Bytes"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "UnitPrice",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NUMERIC(precision=10, scale=2)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "tracks.UnitPrice"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "tracks"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "tracks"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "tracks.TrackId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "InvoiceLineId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoice_items.InvoiceLineId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "InvoiceId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoice_items.InvoiceId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "TrackId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoice_items.TrackId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "UnitPrice",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "NUMERIC(precision=10, scale=2)"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoice_items.UnitPrice"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "Quantity",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "invoice_items.Quantity"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "invoice_items"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "invoice_items"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "invoice_items.InvoiceLineId"
+                ]
+            }
+        ]
+    },
+    {
+        "concept_type": {
+            "app": "aristotle_dse",
+            "model": "distribution"
+        },
+        "fields": {
+            "data_elements": [
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "PlaylistId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "playlist_track.PlaylistId"
+                },
+                {
+                    "data_element": {
+                        "concept_type": {
+                            "app": "aristotle_mdr",
+                            "model": "dataelement"
+                        },
+                        "fields": {
+                            "definition": "Placeholder",
+                            "name": "TrackId",
+                            "valueDomain": {
+                                "concept_type": {
+                                    "app": "aristotle_mdr",
+                                    "model": "valuedomain"
+                                },
+                                "fields": {
+                                    "definition": "Placeholder",
+                                    "name": "INTEGER()"
+                                },
+                                "slots": []
+                            }
+                        },
+                        "slots": []
+                    },
+                    "logical_path": "playlist_track.TrackId"
+                }
+            ],
+            "dataset": "fa8ac89a-b711-11e8-98ee-0242ac120003",
+            "definition": "Placeholder",
+            "name": "playlist_track"
+        },
+        "slots": [
+            {
+                "name": "distribution",
+                "type": "Aristotle DB Tools Field",
+                "value": "playlist_track"
+            },
+            {
+                "name": "primary key",
+                "type": "Aristotle DB Tools Field",
+                "value": [
+                    "playlist_track.PlaylistId",
+                    "playlist_track.TrackId"
+                ]
+            }
+        ]
+    }
+]

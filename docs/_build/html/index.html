@@ -1,0 +1,158 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to Database-Metadata-Miner’s documentation! &#8212; Database-Metadata-Miner 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-database-metadata-miner-s-documentation">
+<h1>Welcome to Database-Metadata-Miner’s documentation!<a class="headerlink" href="#welcome-to-database-metadata-miner-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="what-is-it">
+<h2>What is it?<a class="headerlink" href="#what-is-it" title="Permalink to this headline">¶</a></h2>
+<p>Database-Metadata-Miner is a set of command line tools that help in extracting the metadata schema of the database and uploading it to aristotle metedata registry.</p>
+<p>It is a database independent tool and would work for any relational database.</p>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--index-url</span> <span class="pre">https://test.pypi.org/project/</span> <span class="pre">--extra-index-url</span> <span class="pre">https://pypi.org/simple</span> <span class="pre">demo-meta-miner</span></code></p>
+</div>
+<div class="section" id="how-to-use-it">
+<h2>How to use it?<a class="headerlink" href="#how-to-use-it" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="miner-command">
+<h3>Miner command:<a class="headerlink" href="#miner-command" title="Permalink to this headline">¶</a></h3>
+<p>This command extracts metadata from the given database and stores it in a json file in the location from where command is run.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">miner</span> <span class="pre">--url</span> <span class="pre">&lt;&gt;</span> <span class="pre">--auth</span> <span class="pre">&lt;&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;&gt;</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–url: Database url from which the metedata has to be extracted</li>
+<li>–auth: Authentication token, which can be generated from aristotleurl + /api/token/list/</li>
+<li>–file: Name of the file that contains the output json</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
+</ul>
+</div>
+<div class="section" id="execute-saved-req-command">
+<h3>execute_saved_req command:<a class="headerlink" href="#execute-saved-req-command" title="Permalink to this headline">¶</a></h3>
+<p>This command executes and upload the data to aristotle endpoint from the json file provided by the miner command.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">execute_saved_req</span> <span class="pre">--auth</span> <span class="pre">&lt;&gt;</span> <span class="pre">--file</span> <span class="pre">&lt;&gt;</span> <span class="pre">--dbuuid</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–auth: Authentication token, which can be generated from aristotleurl + /api/token/list/</li>
+<li>–file: Name of the file that contains the output json from the miner command</li>
+<li>–dbuuid: Database UUID, used for uploading changes to this DB UUID (Optional)</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
+</ul>
+</div>
+<div class="section" id="create-database-command">
+<h3>create_database command:<a class="headerlink" href="#create-database-command" title="Permalink to this headline">¶</a></h3>
+<p>This command is used to generate a create table statement from the dataset specification set in aristotle.</p>
+<p><code class="docutils literal"><span class="pre">AristotleDbTools</span> <span class="pre">create_database</span> <span class="pre">--dssuuid</span> <span class="pre">&lt;&gt;</span> <span class="pre">--dbtype</span> <span class="pre">&lt;&gt;</span> <span class="pre">--aristotleurl</span> <span class="pre">&lt;&gt;</span> <span class="pre">--verbose</span> <span class="pre">&lt;&gt;</span></code></p>
+<p>Options:</p>
+<ul class="simple">
+<li>–dssuuid: dataset specification UUID</li>
+<li>–dbtype: Database type for which to create query, options: postgresql, mysql, sqlite, oracle, firebird, sybase</li>
+<li>–aristotleurl: The url enpoint for aristotle software</li>
+<li>–verbose: Prints internal statements (Optional)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Database-Metadata-Miner</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Divyanshu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
