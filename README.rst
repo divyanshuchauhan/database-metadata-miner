@@ -2,17 +2,15 @@
 Database-Metadata-Miner
 =======================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
 .. image:: https://travis-ci.org/divyanshuchauhan/database-metadata-miner.svg?branch=master
     :target: https://travis-ci.org/divyanshuchauhan/database-metadata-miner
+    
 .. image:: https://coveralls.io/repos/github/divyanshuchauhan/database-metadata-miner/badge.svg?branch=master
-:target: https://coveralls.io/github/divyanshuchauhan/database-metadata-miner?branch=master
+   :target: https://coveralls.io/github/divyanshuchauhan/database-metadata-miner?branch=master 
+   
 .. image:: https://readthedocs.org/projects/database-metadata-miner/badge/?version=latest
-:target: https://database-metadata-miner.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
+   :target: https://database-metadata-miner.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
 
 
 What is it?
